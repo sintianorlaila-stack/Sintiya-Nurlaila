@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahogany Project - Biodata</title>
+    <title>Biodata - Mahogany Theme</title>
     <style>
-        /* Pengaturan Dasar */
+        /* Pengaturan Dasar - Konsisten dengan Index */
         * {
             margin: 0;
             padding: 0;
@@ -19,7 +19,7 @@
             line-height: 1.6;
         }
 
-        /* Navigasi (Sama dengan Index agar Konsisten) */
+        /* Navigasi */
         nav {
             background-color: #4e1609;
             padding: 1rem;
@@ -36,43 +36,46 @@
             text-decoration: none;
             margin: 0 15px;
             font-weight: 600;
-            transition: color 0.3s;
+            transition: 0.3s;
         }
 
         nav a:hover {
             color: #ffffff;
         }
 
-        /* Container Utama */
+        /* Container Biodata */
         .container {
             max-width: 700px;
             margin: 50px auto;
             background: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             border-top: 8px solid #6b2414;
         }
 
+        /* Foto Profil */
         .profile-header {
             text-align: center;
             margin-bottom: 30px;
         }
 
-        .profile-header h1 {
-            color: #4e1609;
-            font-size: 2rem;
-            margin-bottom: 5px;
-        }
-
-        .profile-header div {
-            width: 50px;
-            height: 4px;
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #4e1609;
+            padding: 5px;
             background-color: #d4af37;
-            margin: 10px auto;
         }
 
-        /* Styling Tabel Biodata */
+        h1 {
+            color: #4e1609;
+            margin-top: 15px;
+        }
+
+        /* Tabel Biodata */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -84,21 +87,21 @@
         }
 
         table td {
-            padding: 15px 10px;
+            padding: 12px 15px;
         }
 
         .label {
             font-weight: bold;
             color: #6b2414;
-            width: 35%;
+            width: 30%;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 20px;
-            color: #6b2414;
-            font-size: 0.8rem;
+            background-color: #4e1609;
+            color: #f5e6d3;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -113,22 +116,22 @@
 
     <div class="container">
         <div class="profile-header">
+            <img src="https://via.placeholder.com/150" alt="Foto Profil" class="profile-img">
             <h1>Biodata Diri</h1>
-            <div></div>
-            <p>Informasi Lengkap Mahasiswa</p>
+            <p>Mahasiswa Informatika</p>
         </div>
 
         <table>
             <tr>
                 <td class="label">Nama Lengkap</td>
-                <td>: [Isi Nama Kamu]</td>
+                <td>: [Nama Anda]</td>
             </tr>
             <tr>
                 <td class="label">NIM</td>
-                <td>: [Isi NIM Kamu]</td>
+                <td>: [NIM Anda]</td>
             </tr>
             <tr>
-                <td class="label">Program Studi</td>
+                <td class="label">Jurusan</td>
                 <td>: Teknik Informatika</td>
             </tr>
             <tr>
@@ -136,16 +139,12 @@
                 <td>: Ilmu Komputer</td>
             </tr>
             <tr>
-                <td class="label">Tempat, Tgl Lahir</td>
-                <td>: Jakarta, 01 Januari 2000</td>
+                <td class="label">Hobi</td>
+                <td>: Coding & Desain</td>
             </tr>
             <tr>
                 <td class="label">Email</td>
-                <td>: mahasiswa@kampus.ac.id</td>
-            </tr>
-            <tr>
-                <td class="label">Keahlian</td>
-                <td>: Web Development, UI/UX Design</td>
+                <td>: email@contoh.com</td>
             </tr>
         </table>
     </div>
