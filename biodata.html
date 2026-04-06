@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahogany Project - Biodata</title>
+    <style>
+        /* Pengaturan Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcf8f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Navigasi (Sama dengan Index agar Konsisten) */
+        nav {
+            background-color: #4e1609;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* Container Utama */
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 8px solid #6b2414;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-header h1 {
+            color: #4e1609;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .profile-header div {
+            width: 50px;
+            height: 4px;
+            background-color: #d4af37;
+            margin: 10px auto;
+        }
+
+        /* Styling Tabel Biodata */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table tr {
+            border-bottom: 1px solid #eee;
+        }
+
+        table td {
+            padding: 15px 10px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #6b2414;
+            width: 35%;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #6b2414;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="biodata.html">Biodata</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="video.html">Video</a>
+    </nav>
+
+    <div class="container">
+        <div class="profile-header">
+            <h1>Biodata Diri</h1>
+            <div></div>
+            <p>Informasi Lengkap Mahasiswa</p>
+        </div>
+
+        <table>
+            <tr>
+                <td class="label">Nama Lengkap</td>
+                <td>: [Isi Nama Kamu]</td>
+            </tr>
+            <tr>
+                <td class="label">NIM</td>
+                <td>: [Isi NIM Kamu]</td>
+            </tr>
+            <tr>
+                <td class="label">Program Studi</td>
+                <td>: Teknik Informatika</td>
+            </tr>
+            <tr>
+                <td class="label">Fakultas</td>
+                <td>: Ilmu Komputer</td>
+            </tr>
+            <tr>
+                <td class="label">Tempat, Tgl Lahir</td>
+                <td>: Jakarta, 01 Januari 2000</td>
+            </tr>
+            <tr>
+                <td class="label">Email</td>
+                <td>: mahasiswa@kampus.ac.id</td>
+            </tr>
+            <tr>
+                <td class="label">Keahlian</td>
+                <td>: Web Development, UI/UX Design</td>
+            </tr>
+        </table>
+    </div>
+
+    <footer>
+        &copy; 2024 Tugas Web Programming - Tema Mahogany
+    </footer>
+
+</body>
+</html>
