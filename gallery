@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Mahogany Theme</title>
+    <style>
+        /* Pengaturan Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fcf8f5;
+            color: #333;
+        }
+
+        /* Navigasi */
+        nav {
+            background-color: #4e1609;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: #ffffff; }
+
+        /* Header Halaman */
+        .header-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #6b2414;
+            color: #f5e6d3;
+        }
+
+        /* Container Gallery */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border: 8px solid #4e1609; /* Bingkai Kayu Mahogany */
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .caption {
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #4e1609;
+            background: #f5e6d3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4e1609;
+            color: #f5e6d3;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="biodata.html">Biodata</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="video.html">Video</a>
+    </nav>
+
+    <div class="header-section">
+        <h1>Koleksi Galeri</h1>
+        <p>Inspirasi dan Dokumentasi dalam Nuansa Mahogany</p>
+    </div>
+
+    <div class="container">
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300" alt="Foto 1">
+                <div class="caption">Kegiatan Kuliah</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300" alt="Foto 2">
+                <div class="caption">Hobi & Minat</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300" alt="Foto 3">
+                <div class="caption">Proyek Web</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300" alt="Foto 4">
+                <div class="caption">Pemandangan</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300" alt="Foto 5">
+                <div class="caption">Teman Sejawat</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300" alt="Foto 6">
+                <div class="caption">Sertifikat</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Tugas Web Programming - Tema Mahogany
+    </footer>
+
+</body>
+</html>
