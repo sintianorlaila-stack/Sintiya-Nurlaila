@@ -1,132 +1,215 @@
 <!DOCTYPE html>
-
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Sintiya Nurlaila</title>
+    <title>Mahogany Project - Inventaris Barang Kelompok KUB</title>
 
-```
-<style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-    }
-
-    body{
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color:#fcf8f5;
-        color:#333;
-        line-height:1.6;
-    }
-
-    nav{
-        background-color:#4e1609;
-        padding:15px;
-        text-align:center;
-        position:sticky;
-        top:0;
-        z-index:1000;
-    }
-
-    nav a{
-        color:#d4af37;
-        text-decoration:none;
-        margin:0 10px;
-        font-weight:bold;
-    }
-
-    nav a:hover{
-        color:#ffffff;
-    }
-
-    .hero{
-        background:linear-gradient(rgba(78,22,9,0.8), rgba(78,22,9,0.8)),
-        url('https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1350&q=80');
-        background-size:cover;
-        background-position:center;
-        color:white;
-        text-align:center;
-        padding:120px 20px;
-    }
-
-    .hero h1{
-        font-size:2.5rem;
-        margin-bottom:10px;
-    }
-
-    .container{
-        width:90%;
-        max-width:1100px;
-        margin:30px auto;
-    }
-
-    .card{
-        background:white;
-        border-radius:10px;
-        padding:25px;
-        margin-bottom:25px;
-        box-shadow:0 2px 10px rgba(0,0,0,0.1);
-    }
-
-    h2{
-        color:#4e1609;
-        margin-bottom:15px;
-    }
-
-    .btn{
-        display:inline-block;
-        padding:12px 20px;
-        background:#4e1609;
-        color:white;
-        text-decoration:none;
-        border-radius:8px;
-        margin-top:10px;
-    }
-
-    .btn:hover{
-        background:#6b2414;
-    }
-
-    footer{
-        background:#4e1609;
-        color:white;
-        text-align:center;
-        padding:20px;
-        margin-top:30px;
-    }
-
-    @media(max-width:768px){
-        nav a{
-            display:block;
-            margin:8px 0;
+    <style>
+        /* Pengaturan Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .hero h1{
-            font-size:1.8rem;
+        body {
+            background-color: #fcf8f5; /* Warna background krem lembut */
+            color: #333;
+            line-height: 1.6;
         }
-    }
-</style>
-```
 
+        /* Navigasi Tema Mahogany */
+        nav {
+            background-color: #4e1609; /* Warna Mahogany Tua */
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Agar rapi jika dibuka di HP */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        nav a {
+            color: #d4af37; /* Warna Emas untuk kontras */
+            text-decoration: none;
+            margin: 5px 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* Hero Section (Sintiya Nurlaila) */
+        .hero {
+            background: linear-gradient(rgba(78, 22, 9, 0.8), rgba(78, 22, 9, 0.8)), 
+                        url('https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #f5e6d3;
+        }
+
+        /* Header Tema Biru (Inventaris) */
+        .header-kub {
+            background: #0d6efd;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .header-kub h1 {
+            margin-bottom: 10px;
+        }
+
+        /* Konten Utama */
+        .container {
+            width: 95%;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-left: 10px solid #6b2414; /* Aksen kayu di pinggir */
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+            color: #0d6efd;
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .form-frame {
+            height: 2200px;
+        }
+
+        .sheet-frame {
+            height: 700px;
+        }
+
+        /* GitHub Box */
+        .github-box {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .github-btn {
+            display: inline-block;
+            background: #24292e;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .github-btn:hover {
+            background: #000;
+            color: white; /* Perbaikan hover */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #4e1609;
+            color: #f5e6d3;
+            margin-top: 50px;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
-```
-<nav>
-    <a href="index.html">Home</a>
-    <a href="biodata.html">Biodata</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="video.html">Video</a>
-    <a href="tugas2.html">Tugas 2</a>
-    <a href="https://forms.gle/qvoeoHReMMxfdUpz9" target="_blank">Tugas 3</a>
-    <a href="https://datastudio.google.com/reporting/eede2559-c0e6-4d6c-8d1d-896a83c1f6ac" target="_blank">Sajian Data Tugas 4</a>
-    <a href="Indextugas5.html">Tugas 5</a>
-</nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="biodata.html">Biodata</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="video.html">Video</a>
+        <a href="tugas 2.html">Tugas 2</a>
+        <a href="https://forms.gle/qvoeoHReMMxfdUpz9">Tugas 3</a>
+        <a href="https://forms.gle/QbhiMeF7QZmaZsYf6">Tugas 4 Google Form</a>
+        <a href="tugas 5.html">Tugas 5</a>
+        <a href="Indextugas5.html">Tugas 5 (Index)</a>
+        <a href="https://datastudio.google.com/reporting/f36f1de6-cb2b-4262-a64e-e2ac47429415">Sajian Data</a>
+        <a href="https://datastudio.google.com/reporting/eede2559-c0e6-4d6c-8d1d-896a83c1f6ac">Sajian Data Tugas 4</a>
+        <a href="https://docs.google.com/spreadsheets/d/16xMlXjRlfs4JKJGo6EGupW5K_9gvKHpb4GD-NLHFRdg/edit?usp=sharing">Sajian Data Spreadsheets</a>
+    </nav>
 
-<header class="hero">
-    <h1>Selamat Datang di Website Sintiya Nurlaila</h1>
-    
+    <header class="hero">
+        <h1>Hallo, Selamat Datang di Website Sintiya Nurlaila</h1>
+    </header>
 
+    <header class="header-kub">
+        <h1>Inventaris Barang Bersama Kelompok KUB</h1>
+        <p>Sistem Pendataan dan Monitoring Inventaris Barang Kelompok</p>
+    </header>
 
+    <div class="container">
+
+        <div class="card">
+            <h2>Form Input Inventaris Barang</h2>
+            <iframe
+                class="form-frame"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSe7vUI8ZiprL0jY1smf7SVG5T01ihbdnYIFIfb6mVdbitB1dQ/viewform?embedded=true">
+                Memuat...
+            </iframe>
+        </div>
+
+        <div class="card">
+            <h2>Data Inventaris Barang</h2>
+            <iframe
+                class="sheet-frame"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRHnOfDhFgmZnkPEY2gt2yXt32JSK4T-_JZcA2pGhEG5PUzNy9JP7_hzXM9b23GeeW6IA_3fPZDGBzF/pubhtml?widget=true&amp;headers=false">
+            </iframe>
+        </div>
+
+        <div class="card github-box">
+            <h2>Hosting GitHub Pages</h2>
+            <p>Publikasikan website inventaris kelompok melalui GitHub Pages.</p>
+            <br>
+            <a href="https://github.com/" target="_blank" class="github-btn">
+                Buka Repository GitHub
+            </a>
+        </div>
+
+    </div>
+
+    <footer>
+        © 2026 Inventaris Barang Kelompok KUB
+    </footer>
+
+</body>
+</html>
