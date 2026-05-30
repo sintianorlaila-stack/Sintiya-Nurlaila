@@ -28,7 +28,7 @@
             top: 0;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Agar rapi jika dibuka di HP */
+            flex-wrap: wrap; /* Supaya rapi saat dibuka di HP */
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             z-index: 1000;
         }
@@ -43,6 +43,16 @@
 
         nav a:hover {
             color: #ffffff;
+        }
+
+        /* Pembatas khusus kelompok menu jika diperlukan */
+        .nav-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-left: 2px solid #d4af37;
+            padding-left: 10px;
+            margin-left: 10px;
         }
 
         /* Hero Section (Sintiya Nurlaila) */
@@ -137,7 +147,7 @@
 
         .github-btn:hover {
             background: #000;
-            color: white; /* Perbaikan hover */
+            color: white;
         }
 
         /* Footer */
@@ -160,12 +170,15 @@
         <a href="video.html">Video</a>
         <a href="tugas 2.html">Tugas 2</a>
         <a href="https://forms.gle/qvoeoHReMMxfdUpz9">Tugas 3</a>
-        <a href="https://forms.gle/QbhiMeF7QZmaZsYf6">Tugas 4 Google Form</a>
         <a href="tugas 5.html">Tugas 5</a>
         <a href="Indextugas5.html">Tugas 5 (Index)</a>
         <a href="https://datastudio.google.com/reporting/f36f1de6-cb2b-4262-a64e-e2ac47429415">Sajian Data</a>
-        <a href="https://datastudio.google.com/reporting/eede2559-c0e6-4d6c-8d1d-896a83c1f6ac">Sajian Data Tugas 4</a>
-        <a href="https://docs.google.com/spreadsheets/d/16xMlXjRlfs4JKJGo6EGupW5K_9gvKHpb4GD-NLHFRdg/edit?usp=sharing">Sajian Data Spreadsheets</a>
+
+        <span class="nav-group">
+            <a href="https://forms.gle/QbhiMeF7QZmaZsYf6">Tugas 4: Google Form</a>
+            <a href="https://datastudio.google.com/reporting/eede2559-c0e6-4d6c-8d1d-896a83c1f6ac">Tugas 4: Sajian Data</a>
+            <a href="https://docs.google.com/spreadsheets/d/16xMlXjRlfs4JKJGo6EGupW5K_9gvKHpb4GD-NLHFRdg/edit?usp=sharing">Tugas 4: Spreadsheets</a>
+        </span>
     </nav>
 
     <header class="hero">
