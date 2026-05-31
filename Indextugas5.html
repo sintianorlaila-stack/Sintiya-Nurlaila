@@ -23,7 +23,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
             background: #fff;
             padding: 30px;
@@ -39,7 +39,12 @@
         }
 
         h1 { color: var(--primary-color); margin-bottom: 5px; }
-        h2 { color: var(--secondary-color); border-left: 5px solid var(--accent-color); padding-left: 10px; }
+        h2 { 
+            color: var(--secondary-color); 
+            border-left: 5px solid var(--accent-color); 
+            padding-left: 10px; 
+            margin-top: 40px;
+        }
 
         .info-section {
             display: flex;
@@ -90,11 +95,43 @@
         .baik { background-color: #27ae60; }
         .rusak { background-color: #e74c3c; }
 
+        /* Styling for Iframes */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .google-form {
+            height: 800px; /* Tinggi disesuaikan agar tidak terlalu panjang */
+        }
+
+        .google-sheet {
+            height: 500px;
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+        }
+
         footer {
             text-align: center;
             margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
             font-size: 0.8em;
             color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .info-section {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -118,8 +155,6 @@
     </div>
 
     <h2>1. Ringkasan Eksekutif 4 Jurnal</h2>
-    <p>Berdasarkan analisis dari 4 jurnal KUB yang telah dikumpulkan, berikut adalah ringkasan pengadaan dan pengelolaan barang kelompok:</p>
-    
     <div class="journal-summary">
         <ul>
             <li><strong>Jurnal 1:</strong> Fokus pada pengadaan alat produksi dasar.</li>
@@ -129,7 +164,7 @@
         </ul>
     </div>
 
-    <h2>2. Detail Daftar Inventaris Barang</h2>
+    <h2>2. Detail Daftar Inventaris Barang (Data Statis)</h2>
     <table>
         <thead>
             <tr>
@@ -182,6 +217,20 @@
     <h2>3. Analisis Kondisi & Rekomendasi</h2>
     <p>Secara keseluruhan, <strong>90%</strong> aset dalam kondisi prima. Terdapat satu item (Printer Label) yang memerlukan servis rutin sebagaimana tercatat pada Jurnal 4. Disarankan untuk melakukan pengecekan berkala setiap 3 bulan sekali sesuai protokol KUB.</p>
 
+    <hr>
+
+    <h2>4. Form Input Inventaris Baru</h2>
+    <p>Gunakan formulir di bawah ini untuk menambahkan data inventaris baru secara langsung ke sistem:</p>
+    <div class="iframe-container google-form">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1nMgUusuwANnUioOu1CRfg1Sh-X1n1QAiZuGoPqKKpVU8uA/viewform?embedded=true">Memuat…</iframe>
+    </div>
+
+    <h2>5. Database Inventaris Real-time</h2>
+    <p>Berikut adalah tampilan database yang terhubung langsung dengan Google Sheets:</p>
+    <div class="iframe-container google-sheet">
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT0xccuwmuOKWrMP88uO6IGNUIJfcdE5EOKDdznQ8KbNq_ova1oyksyVLKEAdx4YM37Ry58GfAJExLT/pubhtml?widget=true&amp;headers=false"></iframe>
+    </div>
+
     <footer>
         <p>&copy; 2026 Tugas Kuliah - Sistem Informasi Inventaris KUB</p>
     </footer>
@@ -189,4 +238,3 @@
 
 </body>
 </html>
-
