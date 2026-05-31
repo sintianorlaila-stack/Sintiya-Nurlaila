@@ -13,6 +13,11 @@
             --text-color: #333;
         }
 
+        /* Menambahkan smooth scroll untuk pengalaman navigasi yang lebih baik */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -34,16 +39,54 @@
         header {
             text-align: center;
             border-bottom: 3px solid var(--accent-color);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             padding-bottom: 10px;
         }
 
         h1 { color: var(--primary-color); margin-bottom: 5px; }
+        
+        /* Gaya Navigasi Baru */
+        nav {
+            background: var(--primary-color);
+            padding: 10px;
+            border-radius: 5px;
+            position: sticky;
+            top: 10px;
+            z-index: 1000;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--accent-color);
+            border-radius: 4px;
+        }
+
         h2 { 
             color: var(--secondary-color); 
             border-left: 5px solid var(--accent-color); 
             padding-left: 10px; 
-            margin-top: 40px;
+            margin-top: 50px; /* Jarak lebih besar agar tidak tertutup nav saat di-klik */
+            padding-top: 10px;
         }
 
         .info-section {
@@ -95,7 +138,6 @@
         .baik { background-color: #27ae60; }
         .rusak { background-color: #e74c3c; }
 
-        /* Style khusus untuk Iframe agar rapi */
         .embed-container {
             margin-top: 20px;
             border: 1px solid #ddd;
@@ -125,6 +167,12 @@
             font-size: 0.8em;
             color: #777;
         }
+
+        /* Responsif untuk Navigasi */
+        @media (max-width: 600px) {
+            nav ul { flex-direction: column; align-items: center; }
+            .info-section { flex-direction: column; gap: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -134,6 +182,15 @@
         <h1>LAPORAN INVENTARIS BARANG</h1>
         <p>Tugas 5: Ringkasan Kelompok Usaha Bersama (KUB)</p>
     </header>
+
+    <nav>
+        <ul>
+            <li><a href="#ringkasan">1. Ringkasan</a></li>
+            <li><a href="#daftar">2. Detail Inventaris</a></li>
+            <li><a href="#lampiran">3. Lampiran</a></li>
+            <li><a href="#analisis">4. Analisis</a></li>
+        </ul>
+    </nav>
 
     <div class="info-section">
         <div>
@@ -146,7 +203,7 @@
         </div>
     </div>
 
-    <h2>1. Ringkasan Eksekutif 4 Jurnal</h2>
+    <h2 id="ringkasan">1. Ringkasan Eksekutif 4 Jurnal</h2>
     <p>Berdasarkan analisis dari 4 jurnal KUB yang telah dikumpulkan, berikut adalah ringkasan pengadaan dan pengelolaan barang kelompok:</p>
     
     <div class="journal-summary">
@@ -158,7 +215,7 @@
         </ul>
     </div>
 
-    <h2>2. Detail Daftar Inventaris Barang</h2>
+    <h2 id="daftar">2. Detail Daftar Inventaris Barang</h2>
     <table>
         <thead>
             <tr>
@@ -208,7 +265,7 @@
         </tbody>
     </table>
 
-    <h2>3. Lampiran Interaktif & Data Pendukung</h2>
+    <h2 id="lampiran">3. Lampiran Interaktif & Data Pendukung</h2>
     <p>Berikut adalah formulir input, database real-time, dan dashboard laporan yang terintegrasi:</p>
 
     <div class="embed-container">
@@ -236,7 +293,7 @@
         <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLOIBaGf9bbY62zhGFMgGhvoSKxSiUPZovaPi-Fme6i3kj3brVWmuix3pyqytbQ-NsAhuqI4tT4bAt/pubhtml?widget=true&amp;headers=false" height="500"></iframe>
     </div>
 
-    <h2>4. Analisis Kondisi & Rekomendasi</h2>
+    <h2 id="analisis">4. Analisis Kondisi & Rekomendasi</h2>
     <p>Secara keseluruhan, <strong>90%</strong> aset dalam kondisi prima. Terdapat satu item (Printer Label) yang memerlukan servis rutin sebagaimana tercatat pada Jurnal 4. Disarankan untuk melakukan pengecekan berkala setiap 3 bulan sekali sesuai protokol KUB.</p>
 
     <footer>
