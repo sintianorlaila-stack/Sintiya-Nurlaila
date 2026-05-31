@@ -3,377 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Manajemen Inventaris Aset Barang KUB Perikanan</title>
+    <title>Formulir dan Data</title>
     <style>
-        :root {
-            --primary-navy: #1a365d;
-            --secondary-slate: #4a5568;
-            --accent-blue: #2b6cb0;
-            --accent-light: #ebf8ff;
-            --text-dark: #2d3748;
-            --text-light: #ffffff;
-            --bg-page: #f7fafc;
-            --border-color: #e2e8f0;
-            --status-baik: #c6f6d5;
-            --status-baik-text: #22543d;
-            --status-perbaikan: #feebc8;
-            --status-perbaikan-text: #744210;
-        }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* Pengaturan Dasar */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-page);
-            color: var(--text-dark);
-            padding: 30px 20px;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--text-light);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-        }
-
-        header {
-            text-align: center;
-            border-bottom: 3px solid var(--primary-navy);
-            padding-bottom: 25px;
-            margin-bottom: 35px;
-        }
-
-        header h1 {
-            color: var(--primary-navy);
-            font-size: 24pt;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 6px;
-        }
-
-        header h2 {
-            color: var(--accent-blue);
-            font-size: 13pt;
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-
-        header p {
-            color: var(--secondary-slate);
-            font-size: 10pt;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .section-title {
-            color: var(--primary-navy);
-            border-left: 5px solid var(--accent-blue);
-            padding-left: 12px;
-            margin: 35px 0 18px 0;
-            font-size: 14pt;
-            font-weight: 600;
-        }
-
-        /* Filter Controls */
-        .search-container {
-            background-color: var(--bg-page);
-            padding: 15px 20px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 20px;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
             display: flex;
-            gap: 15px;
+            flex-direction: column;
             align-items: center;
         }
 
-        .search-container label {
-            font-weight: 600;
-            font-size: 10pt;
-            color: var(--secondary-slate);
-            white-space: nowrap;
-        }
-
-        .search-container select {
-            padding: 8px 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 10pt;
-            background-color: white;
-            color: var(--text-dark);
+        /* Container untuk membungkus Form dan Spreadsheet */
+        .container {
             width: 100%;
-            max-width: 350px;
-            cursor: pointer;
-        }
-
-        /* Responsive Table */
-        .table-responsive {
-            overflow-x: auto;
-            margin-bottom: 35px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 10pt;
-            text-align: left;
-        }
-
-        th {
-            background-color: var(--primary-navy);
-            color: var(--text-light);
-            padding: 14px 16px;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 9pt;
-            letter-spacing: 0.5px;
-        }
-
-        td {
-            padding: 14px 16px;
-            border-bottom: 1px solid var(--border-color);
-            vertical-align: middle;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f8fafc;
-        }
-
-        /* Badges for Status and Categories */
-        .badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 8.5pt;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .badge-baik {
-            background-color: var(--status-baik);
-            color: var(--status-baik-text);
-        }
-
-        .badge-perbaikan {
-            background-color: var(--status-perbaikan);
-            color: var(--status-perbaikan-text);
-        }
-
-        .badge-kub {
-            display: inline-block;
-            padding: 3px 8px;
-            background-color: #edf2f7;
-            color: var(--primary-navy);
-            font-weight: bold;
-            border: 1px solid #cbd5e0;
-            border-radius: 4px;
-        }
-
-        /* Summary Metrics */
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .metric-card {
-            background-color: var(--accent-light);
-            border: 1px solid #bee3f8;
-            border-radius: 8px;
+            max-width: 800px; /* Membatasi lebar maksimal agar tidak terlalu lebar di PC */
+            background-color: #ffffff;
             padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+
+        h2 {
             text-align: center;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
         }
 
-        .metric-card p {
-            font-size: 9pt;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-            margin-bottom: 5px;
+        /* Pembungkus Iframe agar responsif */
+        .iframe-wrapper {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
         }
 
-        .metric-card h3 {
-            font-size: 18pt;
-            color: var(--primary-navy);
-            font-weight: 700;
+        iframe {
+            width: 100%;
+            border: none;
+            display: block;
         }
 
-        /* Summary Note Box */
-        .info-box {
-            background-color: #fffaf0;
-            border-left: 4px solid #dd6b20;
-            padding: 15px 20px;
-            border-radius: 4px;
-            margin-top: 25px;
-            font-size: 9.5pt;
-            color: #744210;
+        /* Tinggi khusus untuk Google Form */
+        .form-iframe {
+            height: 1200px; /* Disesuaikan agar nyaman di-scroll */
         }
 
-        footer {
-            margin-top: 50px;
-            text-align: center;
-            font-size: 9pt;
-            color: #a0aec0;
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
+        /* Tinggi khusus untuk Google Spreadsheet */
+        .sheet-iframe {
+            height: 600px;
+        }
+
+        /* Penyesuaian untuk layar HP */
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            .form-iframe {
+                height: 1500px; /* Form biasanya lebih memanjang ke bawah di HP */
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>SISTEM INVENTARISASI BARANG & ASET KELOMPOK</h1>
-        <h2>Konsolidasi Sarana Pengadaan Alat Tangkap & Armada 4 KUB Perikanan</h2>
-        <p>Log Register Inventaris Dinas Kelautan dan Perikanan Republik Indonesia</p>
-    </header>
-
-    <h2 class="section-title">I. Dashboard Distribusi & Volume Aset Kelompok</h2>
-    <div class="metrics-grid">
-        <div class="metric-card">
-            <p>Total Jenis Sarana</p>
-            <h3>7 Jenis Barang</h3>
-        </div>
-        <div class="metric-card">
-            <p>Volume Kumulatif Aset</p>
-            <h3>44 Unit Aktif</h3>
-        </div>
-        <div class="metric-card">
-            <p>Kondisi Layak Operasional</p>
-            <h3>93.1% Layak Pakai</h3>
+    <div class="container">
+        <h2>Silakan Isi Formulir</h2>
+        <div class="iframe-wrapper">
+            <iframe class="form-iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSe7vUI8ZiprL0jY1smf7SVG5T01ihbdnYIFIfb6mVdbitB1dQ/viewform?embedded=true" marginheight="0" marginwidth="0">Memuat…</iframe>
         </div>
     </div>
 
-    <div class="search-container">
-        <label for="filter-kub">Tampilkan Data Berdasarkan Kelompok Usaha Bersama:</label>
-        <select id="filter-kub" onchange="saringInventaris()">
-            <option value="semua">-- Tampilkan Semua Aset Kelompok KUB --</option>
-            <option value="intimung">KUB Intimung Taka (Bulungan, Kalimantan Utara)</option>
-            <option value="angsa">KUB Angsa Laut 01 (Merauke, Papua Selatan)</option>
-            <option value="watusa">KUB Usaha Nelayan (Konawe, Sulawesi Tenggara)</option>
-            <option value="sumber">KUB Sumber Makmur (Bangkalan, Jawa Timur)</option>
-        </select>
+    <div class="container">
+        <h2>Data Responden (Spreadsheet)</h2>
+        <div class="iframe-wrapper">
+            <iframe class="sheet-iframe" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRHnOfDhFgmZnkPEY2gt2yXt32JSK4T-_JZcA2pGhEG5PUzNy9JP7_hzXM9b23GeeW6IA_3fPZDGBzF/pubhtml?widget=true&amp;headers=false"></iframe>
+        </div>
     </div>
-
-    <h2 class="section-title">II. Buku Register Log Inventaris Barang Kelompok</h2>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th style="width: 25%;">Nama KUB / Asal Jurnal</th>
-                    <th style="width: 25%;">Nama Sarana & Spesifikasi Alat Tangkap</th>
-                    <th style="text-align: center; width: 10%;">Volume / Qty</th>
-                    <th style="width: 15%;">Sumber Dana / Bantuan</th>
-                    <th style="width: 13%;">Kondisi Fisik</th>
-                    <th style="width: 12%;">Kepemilikan</th>
-                </tr>
-            </thead>
-            <tbody id="inventory-body">
-                <tr class="item-row kub-intimung">
-                    <td><span class="badge badge-kub">KUB Intimung Taka</span><br><small style="color:#718096;">Reg: 1.2.65.01.0814.0914</small></td>
-                    <td><strong>Mesin Nelayan Konversi BBG</strong><br><small>Mesin kapal perikanan penggerak utama ramah lingkungan</small></td>
-                    <td style="text-align: center; font-weight: bold;">12 Unit</td>
-                    <td>Bantuan Pemerintah KKP</td>
-                    <td><span class="badge badge-baik">100% Baik</span></td>
-                    <td>Masing-masing Anggota</td>
-                </tr>
-                <tr class="item-row kub-intimung">
-                    <td><span class="badge badge-kub">KUB Intimung Taka</span><br><small style="color:#718096;">Reg: 1.2.65.01.0814.0914</small></td>
-                    <td><strong>Armada Long Boat & Alat Tangkap</strong><br><small>Gill net, trammel net, pancing ulur, pancing tonda, & bubu</small></td>
-                    <td style="text-align: center; font-weight: bold;">1 Paket</td>
-                    <td>Swadaya Mandiri</td>
-                    <td><span class="badge badge-baik">Layak Operasional</span></td>
-                    <td>Kelompok / Bersama</td>
-                </tr>
-
-                <tr class="item-row kub-angsa">
-                    <td><span class="badge badge-kub">KUB Angsa Laut 01</span><br><small style="color:#718096;">Reg: 1.2.93.01.0223.0223</small></td>
-                    <td><strong>Perahu Semang Motor Tempel</strong><br><small>Kapasitas mesin penggerak berkekuatan 15 PK</small></td>
-                    <td style="text-align: center; font-weight: bold;">1 Unit</td>
-                    <td>Aset Pribadi (Muchsin)</td>
-                    <td><span class="badge badge-baik">Baik / Aktif</span></td>
-                    <td>Disewakan ke Kelompok</td>
-                </tr>
-                <tr class="item-row kub-angsa">
-                    <td><span class="badge badge-kub">KUB Angsa Laut 01</span><br><small style="color:#718096;">Reg: 1.2.93.01.0223.0223</small></td>
-                    <td><strong>Alat Tangkap Jaring Spesifik</strong><br><small>Jaring 7 Mata, Jaring 5 Mata, dan Trammel Net</small></td>
-                    <td style="text-align: center; font-weight: bold;">11 Set</td>
-                    <td>Swadaya Anggota</td>
-                    <td><span class="badge badge-baik">Baik</span></td>
-                    <td>Masing-masing Anggota</td>
-                </tr>
-
-                <tr class="item-row kub-watusa">
-                    <td><span class="badge badge-kub">KUB Usaha Nelayan</span><br><small style="color:#718096;">Reg: 1.2.74.02.17.0215.0516</small></td>
-                    <td><strong>Alat Tangkap Tradisional PUD</strong><br><small>Spesialisasi alat tangkap ekosistem air tawar / rawa</small></td>
-                    <td style="text-align: center; font-weight: bold;">10 Paket</td>
-                    <td>Swadaya Mandiri</td>
-                    <td><span class="badge badge-baik">8 Unit Baik / 2 Aus</span></td>
-                    <td>Masing-masing Anggota</td>
-                </tr>
-
-                <tr class="item-row kub-sumber">
-                    <td><span class="badge badge-kub">KUB Sumber Makmur</span><br><small style="color:#718096;">Reg: 411.61/022/433.105/2013</small></td>
-                    <td><strong>Alat Tangkap Jaring Payang Pesisir</strong><br><small>Jaring kantong besar penangkapan pelagis pesisir pantai</small></td>
-                    <td style="text-align: center; font-weight: bold;">3 Set</td>
-                    <td>Swadaya Pengurus</td>
-                    <td><span class="badge badge-baik">Layak Pakai</span></td>
-                    <td>Kelompok (Inventaris)</td>
-                </tr>
-                <tr class="item-row kub-sumber">
-                    <td><span class="badge badge-kub">KUB Sumber Makmur</span><br><small style="color:#718096;">Reg: 411.61/022/433.105/2013</small></td>
-                    <td><strong>Mesin Motor Tempel Armada Kapal</strong><br><small>Mesin penggerak operasional nelayan Klampis Timur</small></td>
-                    <td style="text-align: center; font-weight: bold;">6 Unit</td>
-                    <td>Modal Mandiri Anggota</td>
-                    <td><span class="badge badge-perbaikan">4 Baik / 2 Perbaikan</span></td>
-                    <td>Masing-masing Anggota</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="info-box">
-        <strong>Catatan Rekomendasi Penyuluh Perikanan Lapangan:</strong><br>
-        Sebagian besar status kepemilikan aset pada KUB tingkat "Pemula" masih bersifat mandiri perorangan yang dititipkan atau digunakan bersama untuk operasional tim nelayan. Penguatan administrasi logbook inventarisasi barang kelompok sangat disarankan guna mendukung pengajuan fasilitasi sarana prasarana modern dari Kementerian Kelautan dan Perikanan (KKP) di periode anggaran mendatang.
-    </div>
-
-    <footer>
-        <p>&copy; 2026 Aplikasi Buku Register Log Aset Internal Pokkan Perikanan Tangkap Indonesia.</p>
-    </footer>
-</div>
-
-<script>
-    function saringInventaris() {
-        const filterValue = document.getElementById('filter-kub').value;
-        const rows = document.getElementsByClassName('item-row');
-
-        for (let i = 0; i < rows.length; i++) {
-            if (filterValue === 'semua') {
-                rows[i].style.display = '';
-            } else {
-                if (rows[i].classList.contains('kub-' + filterValue)) {
-                    rows[i].style.display = '';
-                } else {
-                    rows[i].style.display = 'none';
-                }
-            }
-        }
-    }
-</script>
 
 </body>
 </html>
