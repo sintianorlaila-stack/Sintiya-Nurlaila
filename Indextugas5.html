@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas 5 - Sistem Terintegrasi KUB</title>
+    <title>Dashboard Inventaris Terpadu - Kelompok KUB</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -96,30 +96,35 @@
         .baik { background-color: #27ae60; }
         .rusak { background-color: #e74c3c; }
 
-        /* Gaya untuk pembungkus Iframe agar responsif */
+        /* Styling Iframe */
         .iframe-container {
             position: relative;
             width: 100%;
             overflow: hidden;
-            margin-top: 20px;
-            background: #f9f9f9;
+            background: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
+            margin-top: 15px;
         }
 
-        iframe {
+        .iframe-container iframe {
             width: 100%;
             border: none;
         }
 
-        .btn-link {
+        .link-button {
             display: inline-block;
+            margin-top: 10px;
             padding: 10px 20px;
             background-color: var(--accent-color);
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .link-button:hover {
+            background-color: #2980b9;
         }
 
         footer {
@@ -127,6 +132,8 @@
             margin-top: 40px;
             font-size: 0.8em;
             color: #777;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
         }
     </style>
 </head>
@@ -134,8 +141,8 @@
 
 <div class="container">
     <header>
-        <h1>LAPORAN INVENTARIS & DASHBOARD KUB</h1>
-        <p>Tugas 5: Sistem Informasi Terintegrasi Kelompok Usaha Bersama (KUB)</p>
+        <h1>DASHBOARD INVENTARIS KUB</h1>
+        <p>Sistem Terpadu Pelaporan, Input, dan Monitoring Data</p>
     </header>
 
     <div class="info-section">
@@ -144,27 +151,23 @@
             <strong>Mata Kuliah:</strong> Kewirausahaan / Manajemen
         </div>
         <div>
-            <strong>Tanggal:</strong> 31 Mei 2026<br>
-            <strong>Status:</strong> Sistem Terpadu
+            <strong>Tanggal Update:</strong> 31 Mei 2026<br>
+            <strong>Status:</strong> Sistem Terintegrasi
         </div>
     </div>
 
-    <h2>1. Ringkasan Eksekutif 4 Jurnal</h2>
+    <h2>1. Ringkasan Laporan (Tugas 5)</h2>
+    <p>Berdasarkan analisis dari 4 jurnal KUB, berikut adalah ringkasan aset kelompok:</p>
+    
     <div class="journal-summary">
         <ul>
-            <li><strong>Jurnal 1:</strong> Fokus pada pengadaan alat produksi dasar.</li>
-            <li><strong>Jurnal 2:</strong> Pencatatan bahan baku sisa dan perlengkapan kantor.</li>
-            <li><strong>Jurnal 3:</strong> Inventarisasi alat pemasaran dan promosi.</li>
-            <li><strong>Jurnal 4:</strong> Audit kondisi barang dan penyusutan nilai aset.</li>
+            <li><strong>Jurnal 1:</strong> Pengadaan alat produksi dasar.</li>
+            <li><strong>Jurnal 2:</strong> Pencatatan bahan baku dan perlengkapan admin.</li>
+            <li><strong>Jurnal 3:</strong> Inventarisasi alat pemasaran.</li>
+            <li><strong>Jurnal 4:</strong> Audit kondisi dan penyusutan aset.</li>
         </ul>
     </div>
 
-    <h2>2. Visualisasi Data (Looker Studio)</h2>
-    <div class="iframe-container">
-        <iframe width="100%" height="450" src="https://datastudio.google.com/embed/reporting/2389f1a1-4bf7-466b-8bc1-1c6687e9e187/page/page_12345" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-    </div>
-
-    <h2>3. Detail Daftar Inventaris Barang</h2>
     <table>
         <thead>
             <tr>
@@ -172,7 +175,7 @@
                 <th>Nama Barang</th>
                 <th>Jumlah</th>
                 <th>Kondisi</th>
-                <th>Sumber Jurnal</th>
+                <th>Sumber</th>
             </tr>
         </thead>
         <tbody>
@@ -201,41 +204,31 @@
                 <td>4</td>
                 <td>Printer Label</td>
                 <td>1 Unit</td>
-                <td><span class="badge rusak">Rusak Ringan</span></td>
+                <td><span class="badge rusak">Rusak</span></td>
                 <td>Jurnal 4</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Display Produk (Etalase)</td>
-                <td>2 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 3</td>
             </tr>
         </tbody>
     </table>
 
-    <h2>4. Data Mentah (Google Sheets)</h2>
-    <p>Berikut adalah tampilan data langsung dari Spreadsheet:</p>
+    <h2>2. Form Input Barang Baru</h2>
+    <p>Gunakan formulir di bawah ini untuk menambahkan data inventaris baru secara langsung:</p>
     <div class="iframe-container">
-        <iframe height="400" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLOIBaGf9bbY62zhGFMgGhvoSKxSiUPZovaPi-Fme6i3kj3brVWmuix3pyqytbQ-NsAhuqI4tT4bAt/pubhtml?widget=true&amp;headers=false"></iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1nMgUusuwANnUioOu1CRfg1Sh-X1n1QAiZuGoPqKKpVU8uA/viewform?embedded=true" height="800">Memuat…</iframe>
     </div>
-    <a href="https://docs.google.com/spreadsheets/d/1ybO-7efBhz-i-JFZOn5mansMquMvpB_EtPLevb82pSQ/edit?usp=sharing" target="_blank" class="btn-link">Buka Spreadsheet (Mode Edit)</a>
 
-    <h2>5. Formulir Input & Survey</h2>
-    <p>Silakan isi formulir di bawah ini untuk pembaruan data:</p>
+    <h2>3. Monitoring Data Real-time</h2>
+    <p>Tampilan data langsung dari Google Sheets (Database Inventaris):</p>
+    <div class="iframe-container">
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLOIBaGf9bbY62zhGFMgGhvoSKxSiUPZovaPi-Fme6i3kj3brVWmuix3pyqytbQ-NsAhuqI4tT4bAt/pubhtml?widget=true&amp;headers=false" height="500"></iframe>
+    </div>
     
-    <h3>Formulir 1: Inventaris</h3>
-    <div class="iframe-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1nMgUusuwANnUioOu1CRfg1Sh-X1n1QAiZuGoPqKKpVU8uA/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
-    </div>
+    <a href="https://docs.google.com/spreadsheets/d/1ybO-7efBhz-i-JFZOn5mansMquMvpB_EtPLevb82pSQ/edit?usp=sharing" target="_blank" class="link-button">Buka Spreadsheet Full Screen</a>
 
-    <h3>Formulir 2: Evaluasi KUB</h3>
-    <div class="iframe-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvh8Rh-yWyJ_4JPXveLiabULmoIz7MnUu-pN6ugmt0wkWzjw/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
-    </div>
+    <h2>4. Analisis & Rekomendasi</h2>
+    <p>Secara keseluruhan, <strong>90%</strong> aset dalam kondisi prima. Disarankan untuk segera melakukan perbaikan pada <i>Printer Label</i> dan rutin memperbarui data melalui form di atas setiap kali ada barang masuk/keluar.</p>
 
     <footer>
-        <p>&copy; 2026 Tugas Kuliah - Sistem Informasi Inventaris KUB</p>
+        <p>&copy; 2026 Tugas Kuliah - Sistem Informasi Inventaris KUB Terintegrasi</p>
     </footer>
 </div>
 
