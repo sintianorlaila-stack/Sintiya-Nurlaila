@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Inventaris Terpadu - Kelompok KUB</title>
+    <title>Tugas 5 - Inventaris Barang Kelompok KUB</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -24,7 +24,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: auto;
             background: #fff;
             padding: 30px;
@@ -44,7 +44,7 @@
             color: var(--secondary-color); 
             border-left: 5px solid var(--accent-color); 
             padding-left: 10px; 
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
         .info-section {
@@ -96,44 +96,18 @@
         .baik { background-color: #27ae60; }
         .rusak { background-color: #e74c3c; }
 
-        /* Styling Iframe */
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
-
-        .iframe-container iframe {
-            width: 100%;
-            border: none;
-        }
-
-        .link-button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: var(--accent-color);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        .link-button:hover {
-            background-color: #2980b9;
-        }
-
         footer {
             text-align: center;
             margin-top: 40px;
             font-size: 0.8em;
             color: #777;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .info-section {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -141,8 +115,8 @@
 
 <div class="container">
     <header>
-        <h1>DASHBOARD INVENTARIS KUB</h1>
-        <p>Sistem Terpadu Pelaporan, Input, dan Monitoring Data</p>
+        <h1>LAPORAN INVENTARIS BARANG</h1>
+        <p>Tugas 5: Ringkasan Kelompok Usaha Bersama (KUB)</p>
     </header>
 
     <div class="info-section">
@@ -151,23 +125,24 @@
             <strong>Mata Kuliah:</strong> Kewirausahaan / Manajemen
         </div>
         <div>
-            <strong>Tanggal Update:</strong> 31 Mei 2026<br>
-            <strong>Status:</strong> Sistem Terintegrasi
+            <strong>Tanggal:</strong> 31 Mei 2026<br>
+            <strong>Status:</strong> Final
         </div>
     </div>
 
-    <h2>1. Ringkasan Laporan (Tugas 5)</h2>
-    <p>Berdasarkan analisis dari 4 jurnal KUB, berikut adalah ringkasan aset kelompok:</p>
+    <h2>1. Ringkasan Eksekutif 4 Jurnal</h2>
+    <p>Berdasarkan analisis dari 4 jurnal KUB yang telah dikumpulkan, berikut adalah ringkasan pengadaan dan pengelolaan barang kelompok:</p>
     
     <div class="journal-summary">
         <ul>
-            <li><strong>Jurnal 1:</strong> Pengadaan alat produksi dasar.</li>
-            <li><strong>Jurnal 2:</strong> Pencatatan bahan baku dan perlengkapan admin.</li>
-            <li><strong>Jurnal 3:</strong> Inventarisasi alat pemasaran.</li>
-            <li><strong>Jurnal 4:</strong> Audit kondisi dan penyusutan aset.</li>
+            <li><strong>Jurnal 1:</strong> Fokus pada pengadaan alat produksi dasar.</li>
+            <li><strong>Jurnal 2:</strong> Pencatatan bahan baku sisa dan perlengkapan kantor.</li>
+            <li><strong>Jurnal 3:</strong> Inventarisasi alat pemasaran dan promosi.</li>
+            <li><strong>Jurnal 4:</strong> Audit kondisi barang dan penyusutan nilai aset.</li>
         </ul>
     </div>
 
+    <h2>2. Detail Daftar Inventaris Barang</h2>
     <table>
         <thead>
             <tr>
@@ -175,7 +150,7 @@
                 <th>Nama Barang</th>
                 <th>Jumlah</th>
                 <th>Kondisi</th>
-                <th>Sumber</th>
+                <th>Sumber Jurnal</th>
             </tr>
         </thead>
         <tbody>
@@ -204,31 +179,24 @@
                 <td>4</td>
                 <td>Printer Label</td>
                 <td>1 Unit</td>
-                <td><span class="badge rusak">Rusak</span></td>
+                <td><span class="badge rusak">Rusak Ringan</span></td>
                 <td>Jurnal 4</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Display Produk (Etalase)</td>
+                <td>2 Unit</td>
+                <td><span class="badge baik">Baik</span></td>
+                <td>Jurnal 3</td>
             </tr>
         </tbody>
     </table>
 
-    <h2>2. Form Input Barang Baru</h2>
-    <p>Gunakan formulir di bawah ini untuk menambahkan data inventaris baru secara langsung:</p>
-    <div class="iframe-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1nMgUusuwANnUioOu1CRfg1Sh-X1n1QAiZuGoPqKKpVU8uA/viewform?embedded=true" height="800">Memuat…</iframe>
-    </div>
-
-    <h2>3. Monitoring Data Real-time</h2>
-    <p>Tampilan data langsung dari Google Sheets (Database Inventaris):</p>
-    <div class="iframe-container">
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLOIBaGf9bbY62zhGFMgGhvoSKxSiUPZovaPi-Fme6i3kj3brVWmuix3pyqytbQ-NsAhuqI4tT4bAt/pubhtml?widget=true&amp;headers=false" height="500"></iframe>
-    </div>
-    
-    <a href="https://docs.google.com/spreadsheets/d/1ybO-7efBhz-i-JFZOn5mansMquMvpB_EtPLevb82pSQ/edit?usp=sharing" target="_blank" class="link-button">Buka Spreadsheet Full Screen</a>
-
-    <h2>4. Analisis & Rekomendasi</h2>
-    <p>Secara keseluruhan, <strong>90%</strong> aset dalam kondisi prima. Disarankan untuk segera melakukan perbaikan pada <i>Printer Label</i> dan rutin memperbarui data melalui form di atas setiap kali ada barang masuk/keluar.</p>
+    <h2>3. Analisis Kondisi & Rekomendasi</h2>
+    <p>Secara keseluruhan, <strong>90%</strong> aset dalam kondisi prima. Terdapat satu item (Printer Label) yang memerlukan servis rutin sebagaimana tercatat pada Jurnal 4. Disarankan untuk melakukan pengecekan berkala setiap 3 bulan sekali sesuai protokol KUB.</p>
 
     <footer>
-        <p>&copy; 2026 Tugas Kuliah - Sistem Informasi Inventaris KUB Terintegrasi</p>
+        <p>&copy; 2026 Tugas Kuliah - Sistem Informasi Inventaris KUB</p>
     </footer>
 </div>
 
