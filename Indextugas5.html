@@ -4,241 +4,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas 5 - Inventaris Barang Kelompok KUB</title>
+    <title>Tugas 5 - Inventaris Barang Kelompok (KUB)</title>
+
     <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #3498db;
-            --bg-color: #f4f7f6;
-            --text-color: #333;
-            --success-color: #27ae60;
-            --danger-color: #e74c3c;
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f4f6f9;
+            margin:0;
+            padding:20px;
+            line-height:1.6;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 20px;
+        .container{
+            max-width:1000px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
         }
 
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        h1,h2,h3{
+            color:#0b5394;
         }
 
-        header {
-            text-align: center;
-            border-bottom: 3px solid var(--accent-color);
-            margin-bottom: 30px;
-            padding-bottom: 20px;
+        table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:15px;
         }
 
-        h1 { 
-            color: var(--primary-color); 
-            margin-bottom: 5px;
-            letter-spacing: 1px;
+        table, th, td{
+            border:1px solid #ccc;
         }
 
-        h2 { 
-            color: var(--secondary-color); 
-            border-left: 5px solid var(--accent-color); 
-            padding-left: 15px; 
-            margin-top: 30px;
-            font-size: 1.4em;
+        th{
+            background:#0b5394;
+            color:white;
+            padding:10px;
         }
 
-        .info-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
-            font-size: 0.95em;
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #eef2f3;
+        td{
+            padding:8px;
         }
 
-        .info-box strong {
-            color: var(--primary-color);
+        .kesimpulan{
+            background:#eaf4ff;
+            padding:15px;
+            border-left:5px solid #0b5394;
+            margin-top:20px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        table th, table td {
-            border: 1px solid #eee;
-            padding: 14px;
-            text-align: left;
-        }
-
-        table th {
-            background-color: var(--primary-color);
-            color: white;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.85em;
-        }
-
-        table tr:nth-child(even) { background-color: #fcfcfc; }
-        table tr:hover { background-color: #f1f7ff; }
-
-        .journal-summary {
-            margin-top: 10px;
-            padding: 5px 20px;
-            background: #fff;
-            border-left: 3px solid #ddd;
-        }
-
-        .journal-summary li {
-            margin-bottom: 10px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75em;
-            font-weight: bold;
-            color: white;
-            text-align: center;
-            min-width: 80px;
-        }
-
-        .baik { background-color: var(--success-color); }
-        .rusak { background-color: var(--danger-color); }
-
-        .analysis-box {
-            background-color: #e8f4fd;
-            padding: 20px;
-            border-radius: 8px;
-            border-right: 5px solid var(--accent-color);
-            margin-top: 15px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            font-size: 0.85em;
-            color: #888;
-            border-top: 1px solid #eee;
-        }
-
-        @media (max-width: 600px) {
-            .info-section {
-                grid-template-columns: 1fr;
-            }
-            .container {
-                padding: 20px;
-            }
+        .jurnal{
+            margin-bottom:30px;
         }
     </style>
 </head>
+
 <body>
 
 <div class="container">
-    <header>
-        <h1>LAPORAN INVENTARIS BARANG</h1>
-        <p style="color: #666;">Tugas 5: Ringkasan Kelompok Usaha Bersama (KUB)</p>
-    </header>
 
-    <div class="info-section">
-        <div class="info-box">
-            <strong>Kelompok:</strong> Kelompok 4 / KUB Sejahtera<br>
-            <strong>Mata Kuliah:</strong> Kewirausahaan / Manajemen
-        </div>
-        <div class="info-box">
-            <strong>Tanggal:</strong> 31 Mei 2026<br>
-            <strong>Status Laporan:</strong> <span style="color: var(--success-color); font-weight: bold;">Final</span>
-        </div>
+    <h1 align="center">TUGAS 5</h1>
+    <h2 align="center">Inventaris Barang Kelompok Berdasarkan Analisis 4 Jurnal KUB</h2>
+
+    <hr>
+
+    <h2>A. Pendahuluan</h2>
+
+    <p>
+        Kelompok Usaha Bersama (KUB) merupakan organisasi ekonomi masyarakat yang
+        dibentuk untuk meningkatkan produktivitas, pendapatan, serta kesejahteraan anggota.
+        Salah satu aspek penting dalam pengelolaan KUB adalah inventaris barang.
+        Inventaris barang mencakup seluruh aset yang digunakan untuk mendukung kegiatan
+        usaha, baik berupa peralatan produksi, sarana operasional, maupun fasilitas pendukung.
+    </p>
+
+    <p>
+        Berdasarkan kajian dari empat jurnal mengenai Kelompok Usaha Bersama (KUB),
+        inventaris barang memiliki peran penting dalam meningkatkan efektivitas kegiatan
+        usaha, mempermudah pengawasan aset, serta membantu proses perencanaan dan
+        pengambilan keputusan kelompok.
+    </p>
+
+    <h2>B. Ringkasan Hasil Kajian 4 Jurnal KUB</h2>
+
+    <div class="jurnal">
+        <h3>1. Jurnal KUB Pertama</h3>
+        <p>
+            Jurnal pertama menjelaskan bahwa keberhasilan KUB sangat dipengaruhi oleh
+            ketersediaan sarana dan prasarana yang memadai. Inventaris seperti alat produksi,
+            mesin, dan perlengkapan kerja menjadi faktor utama dalam menunjang kegiatan
+            usaha kelompok.
+        </p>
     </div>
 
-    <h2>1. Ringkasan Eksekutif 4 Jurnal</h2>
-    <p>Berdasarkan analisis dari 4 jurnal KUB yang telah dikumpulkan, berikut adalah poin-poin utama pengadaan dan pengelolaan barang kelompok:</p>
-    
-    <div class="journal-summary">
-        <ul>
-            <li><strong>Jurnal 1:</strong> Fokus pada pengadaan alat produksi dasar untuk operasional utama.</li>
-            <li><strong>Jurnal 2:</strong> Pencatatan bahan baku sisa dan inventarisasi perlengkapan kantor.</li>
-            <li><strong>Jurnal 3:</strong> Pengadaan aset pendukung untuk aktivitas pemasaran dan promosi.</li>
-            <li><strong>Jurnal 4:</strong> Audit kondisi fisik barang dan perhitungan penyusutan nilai aset tahunan.</li>
-        </ul>
+    <div class="jurnal">
+        <h3>2. Jurnal KUB Kedua</h3>
+        <p>
+            Jurnal kedua menunjukkan bahwa pencatatan inventaris yang baik dapat
+            meningkatkan transparansi dan akuntabilitas pengelolaan kelompok.
+            Setiap aset dicatat berdasarkan kondisi, jumlah, dan penggunaannya sehingga
+            memudahkan proses evaluasi.
+        </p>
     </div>
 
-    <h2>2. Detail Daftar Inventaris Barang</h2>
+    <div class="jurnal">
+        <h3>3. Jurnal KUB Ketiga</h3>
+        <p>
+            Jurnal ketiga menekankan pentingnya pemeliharaan inventaris. Barang yang
+            dirawat secara berkala memiliki umur ekonomis yang lebih panjang sehingga
+            dapat mengurangi biaya penggantian aset.
+        </p>
+    </div>
+
+    <div class="jurnal">
+        <h3>4. Jurnal KUB Keempat</h3>
+        <p>
+            Jurnal keempat menjelaskan bahwa inventaris barang berpengaruh terhadap
+            produktivitas usaha. Semakin lengkap dan baik kondisi peralatan yang dimiliki,
+            maka semakin tinggi efisiensi dan hasil produksi kelompok.
+        </p>
+    </div>
+
+    <h2>C. Inventaris Barang Kelompok</h2>
+
     <table>
-        <thead>
-            <tr>
-                <th style="width: 5%;">No</th>
-                <th style="width: 35%;">Nama Barang</th>
-                <th style="width: 15%;">Jumlah</th>
-                <th style="width: 20%;">Kondisi</th>
-                <th style="width: 25%;">Sumber Jurnal</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Mesin Pengolah Utama</td>
-                <td>2 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 1</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Laptop Admin</td>
-                <td>1 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 2</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Timbangan Digital</td>
-                <td>3 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 1 & 3</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Printer Label</td>
-                <td>1 Unit</td>
-                <td><span class="badge rusak">Rusak Ringan</span></td>
-                <td>Jurnal 4</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Display Produk (Etalase)</td>
-                <td>2 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 3</td>
-            </tr>
-        </tbody>
+        <tr>
+            <th>No</th>
+            <th>Nama Barang</th>
+            <th>Jumlah</th>
+            <th>Kondisi</th>
+            <th>Fungsi</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>Mesin Produksi</td>
+            <td>2 Unit</td>
+            <td>Baik</td>
+            <td>Mendukung proses produksi</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>Timbangan Digital</td>
+            <td>3 Unit</td>
+            <td>Baik</td>
+            <td>Menimbang hasil produksi</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>Meja Kerja</td>
+            <td>5 Unit</td>
+            <td>Baik</td>
+            <td>Tempat pengolahan produk</td>
+        </tr>
+
+        <tr>
+            <td>4</td>
+            <td>Kursi</td>
+            <td>10 Unit</td>
+            <td>Baik</td>
+            <td>Fasilitas anggota kelompok</td>
+        </tr>
+
+        <tr>
+            <td>5</td>
+            <td>Lemari Penyimpanan</td>
+            <td>2 Unit</td>
+            <td>Baik</td>
+            <td>Menyimpan dokumen dan peralatan</td>
+        </tr>
     </table>
 
-    <h2>3. Analisis Kondisi & Rekomendasi</h2>
-    <div class="analysis-box">
-        <p>Secara keseluruhan, <strong>90%</strong> aset kelompok berada dalam kondisi prima. Namun, ditemukan satu item yaitu <strong>Printer Label</strong> yang memerlukan pemeliharaan (servis rutin) sebagaimana tercatat pada audit Jurnal 4.</p>
-        <p><strong>Rekomendasi:</strong> Disarankan untuk mengimplementasikan jadwal pengecekan berkala setiap 3 bulan sekali guna memastikan umur ekonomis barang tetap terjaga sesuai dengan standar manajemen aset KUB.</p>
+    <h2>D. Analisis Inventaris Barang</h2>
+
+    <p>
+        Berdasarkan hasil kajian empat jurnal, inventaris barang menjadi salah satu
+        faktor penting dalam keberlangsungan usaha kelompok. Pengelolaan inventaris yang
+        baik dapat meningkatkan efisiensi kerja, menjaga kualitas aset, dan mendukung
+        peningkatan produktivitas usaha.
+    </p>
+
+    <p>
+        Inventaris juga berfungsi sebagai alat pengawasan sehingga kelompok dapat
+        mengetahui kondisi aset yang dimiliki, kebutuhan perawatan, dan rencana
+        pengadaan barang baru. Dengan demikian, pengelolaan inventaris yang sistematis
+        akan membantu KUB mencapai tujuan usaha secara lebih efektif.
+    </p>
+
+    <div class="kesimpulan">
+        <h2>E. Kesimpulan</h2>
+
+        <p>
+            Inventaris barang merupakan komponen penting dalam pengelolaan Kelompok
+            Usaha Bersama (KUB). Berdasarkan analisis empat jurnal, inventaris yang
+            dikelola dengan baik mampu meningkatkan produktivitas, efisiensi, transparansi,
+            serta keberlanjutan usaha kelompok. Oleh karena itu, setiap KUB perlu
+            menerapkan sistem pencatatan, pemeliharaan, dan pengawasan inventaris secara
+            teratur agar aset yang dimiliki dapat dimanfaatkan secara optimal.
+        </p>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Tugas Kuliah - Sistem Informasi Inventaris KUB</p>
-        <p>Dibuat secara otomatis untuk keperluan administrasi kelompok.</p>
-    </footer>
 </div>
 
 </body>
