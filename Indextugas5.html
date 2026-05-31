@@ -24,7 +24,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
             background: #fff;
             padding: 30px;
@@ -40,7 +40,12 @@
         }
 
         h1 { color: var(--primary-color); margin-bottom: 5px; }
-        h2 { color: var(--secondary-color); border-left: 5px solid var(--accent-color); padding-left: 10px; }
+        h2 { 
+            color: var(--secondary-color); 
+            border-left: 5px solid var(--accent-color); 
+            padding-left: 10px; 
+            margin-top: 40px;
+        }
 
         .info-section {
             display: flex;
@@ -52,6 +57,7 @@
             border-radius: 5px;
         }
 
+        /* Styling untuk Tabel Statis */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -71,14 +77,6 @@
 
         table tr:nth-child(even) { background-color: #f9f9f9; }
 
-        .journal-summary {
-            margin-top: 20px;
-            padding: 15px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
         .badge {
             display: inline-block;
             padding: 3px 8px;
@@ -91,11 +89,38 @@
         .baik { background-color: #27ae60; }
         .rusak { background-color: #e74c3c; }
 
+        /* Styling untuk Iframe (Sheet & Form) */
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .iframe-sheets {
+            height: 500px;
+            width: 100%;
+        }
+
+        .iframe-forms {
+            height: 800px;
+            width: 100%;
+        }
+
         footer {
             text-align: center;
             margin-top: 40px;
             font-size: 0.8em;
             color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .info-section {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -118,19 +143,13 @@
         </div>
     </div>
 
-    <h2>1. Ringkasan Eksekutif 4 Jurnal</h2>
-    <p>Berdasarkan analisis dari 4 jurnal KUB yang telah dikumpulkan, berikut adalah ringkasan pengadaan dan pengelolaan barang kelompok:</p>
-    
-    <div class="journal-summary">
-        <ul>
-            <li><strong>Jurnal 1:</strong> Fokus pada pengadaan alat produksi dasar.</li>
-            <li><strong>Jurnal 2:</strong> Pencatatan bahan baku sisa dan perlengkapan kantor.</li>
-            <li><strong>Jurnal 3:</strong> Inventarisasi alat pemasaran dan promosi.</li>
-            <li><strong>Jurnal 4:</strong> Audit kondisi barang dan penyusutan nilai aset.</li>
-        </ul>
+    <h2>1. Data Live (Google Sheets)</h2>
+    <p>Di bawah ini adalah data inventaris yang terhubung langsung dengan spreadsheet utama:</p>
+    <div class="iframe-wrapper">
+        <iframe class="iframe-sheets" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT0xccuwmuOKWrMP88uO6IGNUIJfcdE5EOKDdznQ8KbNq_ova1oyksyVLKEAdx4YM37Ry58GfAJExLT/pubhtml?widget=true&amp;headers=false"></iframe>
     </div>
 
-    <h2>2. Detail Daftar Inventaris Barang</h2>
+    <h2>2. Ringkasan Inventaris (Statis)</h2>
     <table>
         <thead>
             <tr>
@@ -170,17 +189,16 @@
                 <td><span class="badge rusak">Rusak Ringan</span></td>
                 <td>Jurnal 4</td>
             </tr>
-            <tr>
-                <td>5</td>
-                <td>Display Produk (Etalase)</td>
-                <td>2 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 3</td>
-            </tr>
         </tbody>
     </table>
 
-    <h2>3. Analisis Kondisi & Rekomendasi</h2>
+    <h2>3. Input Data Baru (Google Form)</h2>
+    <p>Gunakan formulir di bawah ini untuk menambahkan barang baru ke dalam sistem inventaris:</p>
+    <div class="iframe-wrapper">
+        <iframe class="iframe-forms" src="https://docs.google.com/forms/d/e/1FAIpQLSc6W_v8pUv9F6lK8L3O1q8mN2e8yXzO6Fq1S3y7e-p_X5Q6wA/viewform?embedded=true"></iframe>
+        </div>
+
+    <h2>4. Analisis & Rekomendasi</h2>
     <p>Secara keseluruhan, <strong>90%</strong> aset dalam kondisi prima. Terdapat satu item (Printer Label) yang memerlukan servis rutin sebagaimana tercatat pada Jurnal 4. Disarankan untuk melakukan pengecekan berkala setiap 3 bulan sekali sesuai protokol KUB.</p>
 
     <footer>
