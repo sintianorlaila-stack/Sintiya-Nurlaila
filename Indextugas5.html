@@ -39,7 +39,12 @@
         }
 
         h1 { color: var(--primary-color); margin-bottom: 5px; }
-        h2 { color: var(--secondary-color); border-left: 5px solid var(--accent-color); padding-left: 10px; margin-top: 40px; }
+        h2 { 
+            color: var(--secondary-color); 
+            border-left: 5px solid var(--accent-color); 
+            padding-left: 10px; 
+            margin-top: 40px;
+        }
 
         .info-section {
             display: flex;
@@ -90,32 +95,28 @@
         .baik { background-color: #27ae60; }
         .rusak { background-color: #e74c3c; }
 
-        /* Styling untuk Iframe */
+        /* Style khusus untuk Iframe agar rapi */
         .embed-container {
-            position: relative;
             margin-top: 20px;
             border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
-            background: #fafafa;
+            background: #fff;
+            margin-bottom: 30px;
         }
 
         .embed-container iframe {
             width: 100%;
-            border: 0;
+            border: none;
+            display: block;
         }
 
-        .dashboard-frame {
-            height: 500px;
-        }
-
-        .form-frame {
-            height: 600px; /* Tinggi disesuaikan agar tidak terlalu panjang */
-            overflow-y: scroll;
-        }
-
-        .sheet-frame {
-            height: 400px;
+        .embed-title {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+            color: var(--secondary-color);
         }
 
         footer {
@@ -207,31 +208,36 @@
         </tbody>
     </table>
 
-    <h2>3. Analisis Kondisi & Rekomendasi</h2>
+    <h2>3. Lampiran Interaktif & Data Pendukung</h2>
+    <p>Berikut adalah formulir input, database real-time, dan dashboard laporan yang terintegrasi:</p>
+
+    <div class="embed-container">
+        <div class="embed-title">Formulir Inventaris Barang (Input)</div>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1nMgUusuwANnUioOu1CRfg1Sh-X1n1QAiZuGoPqKKpVU8uA/viewform?embedded=true" height="800" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+    </div>
+
+    <div class="embed-container">
+        <div class="embed-title">Database Spreadsheet Utama</div>
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT0xccuwmuOKWrMP88uO6IGNUIJfcdE5EOKDdznQ8KbNq_ova1oyksyVLKEAdx4YM37Ry58GfAJExLT/pubhtml?widget=true&amp;headers=false" height="500"></iframe>
+    </div>
+
+    <div class="embed-container">
+        <div class="embed-title">Dashboard Visualisasi Data</div>
+        <iframe width="100%" height="450" src="https://datastudio.google.com/embed/reporting/2389f1a1-4bf7-466b-8bc1-1c6687e9e187/page/page_12345" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+    </div>
+
+    <div class="embed-container">
+        <div class="embed-title">Formulir Tambahan / Audit</div>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvh8Rh-yWyJ_4JPXveLiabULmoIz7MnUu-pN6ugmt0wkWzjw/viewform?embedded=true" height="800" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+    </div>
+
+    <div class="embed-container">
+        <div class="embed-title">Rekapitulasi Data Akhir</div>
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLOIBaGf9bbY62zhGFMgGhvoSKxSiUPZovaPi-Fme6i3kj3brVWmuix3pyqytbQ-NsAhuqI4tT4bAt/pubhtml?widget=true&amp;headers=false" height="500"></iframe>
+    </div>
+
+    <h2>4. Analisis Kondisi & Rekomendasi</h2>
     <p>Secara keseluruhan, <strong>90%</strong> aset dalam kondisi prima. Terdapat satu item (Printer Label) yang memerlukan servis rutin sebagaimana tercatat pada Jurnal 4. Disarankan untuk melakukan pengecekan berkala setiap 3 bulan sekali sesuai protokol KUB.</p>
-
-    <h2>4. Dashboard Monitoring (Data Studio)</h2>
-    <div class="embed-container dashboard-frame">
-        <iframe src="https://datastudio.google.com/embed/reporting/2389f1a1-4bf7-466b-8bc1-1c6687e9e187/page/page_12345" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-    </div>
-
-    <h2>5. Sistem Input Data (Google Forms)</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <div class="embed-container form-frame">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1nMgUusuwANnUioOu1CRfg1Sh-X1n1QAiZuGoPqKKpVU8uA/viewform?embedded=true">Memuat…</iframe>
-        </div>
-        <div class="embed-container form-frame">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfvh8Rh-yWyJ_4JPXveLiabULmoIz7MnUu-pN6ugmt0wkWzjw/viewform?embedded=true">Memuat…</iframe>
-        </div>
-    </div>
-
-    <h2>6. Database Inventaris (Google Sheets)</h2>
-    <div class="embed-container sheet-frame">
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT0xccuwmuOKWrMP88uO6IGNUIJfcdE5EOKDdznQ8KbNq_ova1oyksyVLKEAdx4YM37Ry58GfAJExLT/pubhtml?widget=true&amp;headers=false"></iframe>
-    </div>
-    <div class="embed-container sheet-frame" style="margin-top: 10px;">
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTLOIBaGf9bbY62zhGFMgGhvoSKxSiUPZovaPi-Fme6i3kj3brVWmuix3pyqytbQ-NsAhuqI4tT4bAt/pubhtml?widget=true&amp;headers=false"></iframe>
-    </div>
 
     <footer>
         <p>&copy; 2026 Tugas Kuliah - Sistem Informasi Inventaris KUB</p>
