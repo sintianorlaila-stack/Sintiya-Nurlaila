@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas 5 - Inventaris Barang Kelompok KUB (Integrated)</title>
+    <title>Sistem Terpadu Inventaris Barang - KUB Sejahtera</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -12,6 +12,7 @@
             --accent-color: #3498db;
             --bg-color: #f4f7f6;
             --text-color: #333;
+            --white: #ffffff;
         }
 
         body {
@@ -26,7 +27,7 @@
         .container {
             max-width: 1000px;
             margin: auto;
-            background: #fff;
+            background: var(--white);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -40,7 +41,15 @@
         }
 
         h1 { color: var(--primary-color); margin-bottom: 5px; }
-        h2 { color: var(--secondary-color); border-left: 5px solid var(--accent-color); padding-left: 10px; margin-top: 30px; }
+        h2 { 
+            color: var(--secondary-color); 
+            border-left: 5px solid var(--accent-color); 
+            padding-left: 15px; 
+            margin-top: 40px;
+            background: #f8f9fa;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
 
         .info-section {
             display: flex;
@@ -52,24 +61,51 @@
             border-radius: 5px;
         }
 
+        /* Styling Tabel */
+        .table-container { overflow-x: auto; }
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
-
         table th, table td {
             border: 1px solid #ddd;
             padding: 12px;
             text-align: left;
         }
-
         table th {
             background-color: var(--primary-color);
             color: white;
         }
-
         table tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* Integrasi Iframe */
+        .iframe-wrapper {
+            position: relative;
+            width: 100%;
+            background: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .iframe-form { height: 600px; } /* Tinggi disesuaikan agar tidak terlalu panjang */
+        .iframe-dashboard { height: 500px; }
+
+        /* Button Link */
+        .btn-link {
+            display: inline-block;
+            background-color: #27ae60;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin: 10px 0;
+        }
+        .btn-link:hover { background-color: #219150; }
 
         .journal-summary {
             margin-top: 20px;
@@ -80,41 +116,22 @@
         }
 
         .badge {
-            display: inline-block;
             padding: 3px 8px;
             border-radius: 4px;
             font-size: 0.8em;
             font-weight: bold;
             color: white;
         }
-
         .baik { background-color: #27ae60; }
         .rusak { background-color: #e74c3c; }
 
-        /* Styling for Embedded Contents */
-        .embed-wrapper {
-            margin: 20px 0;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #fafafa;
-        }
-
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
             font-size: 0.8em;
             color: #777;
-        }
-
-        @media (max-width: 600px) {
-            .info-section { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
@@ -122,100 +139,98 @@
 
 <div class="container">
     <header>
-        <h1>LAPORAN INVENTARIS BARANG</h1>
-        <p>Tugas 5: Ringkasan Kelompok Usaha Bersama (KUB)</p>
+        <h1>SISTEM INFORMASI INVENTARIS TERPADU</h1>
+        <p>Kelompok 4: KUB Sejahtera - Laporan & Manajemen Aset</p>
     </header>
 
     <div class="info-section">
         <div>
-            <strong>Kelompok:</strong> Kelompok 4 / KUB Sejahtera<br>
+            <strong>Unit Kerja:</strong> Kelompok 4 / KUB Sejahtera<br>
             <strong>Mata Kuliah:</strong> Kewirausahaan / Manajemen
         </div>
         <div>
-            <strong>Tanggal:</strong> 31 Mei 2026<br>
-            <strong>Status:</strong> Final
+            <strong>Update Terakhir:</strong> 31 Mei 2026<br>
+            <strong>Status Sistem:</strong> Aktif/Final
         </div>
     </div>
 
     <h2>1. Ringkasan Eksekutif 4 Jurnal</h2>
-    <p>Berdasarkan analisis dari 4 jurnal KUB yang telah dikumpulkan, berikut adalah ringkasan pengadaan dan pengelolaan barang kelompok:</p>
-    
+    <p>Data berikut merangkum hasil audit dari empat fase pengelolaan barang:</p>
     <div class="journal-summary">
         <ul>
-            <li><strong>Jurnal 1:</strong> Fokus pada pengadaan alat produksi dasar.</li>
-            <li><strong>Jurnal 2:</strong> Pencatatan bahan baku sisa dan perlengkapan kantor.</li>
-            <li><strong>Jurnal 3:</strong> Inventarisasi alat pemasaran dan promosi.</li>
-            <li><strong>Jurnal 4:</strong> Audit kondisi barang dan penyusutan nilai aset.</li>
+            <li><strong>Jurnal 1:</strong> Pengadaan alat produksi dasar.</li>
+            <li><strong>Jurnal 2:</strong> Pencatatan bahan baku sisa & ATK.</li>
+            <li><strong>Jurnal 3:</strong> Inventarisasi alat pemasaran.</li>
+            <li><strong>Jurnal 4:</strong> Audit penyusutan & kondisi aset.</li>
         </ul>
     </div>
 
-    <h2>2. Detail Daftar Inventaris Barang</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Nama Barang</th>
-                <th>Jumlah</th>
-                <th>Kondisi</th>
-                <th>Sumber Jurnal</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Mesin Pengolah Utama</td>
-                <td>2 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 1</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Laptop Admin</td>
-                <td>1 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 2</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Timbangan Digital</td>
-                <td>3 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 1 & 3</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Printer Label</td>
-                <td>1 Unit</td>
-                <td><span class="badge rusak">Rusak Ringan</span></td>
-                <td>Jurnal 4</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Display Produk (Etalase)</td>
-                <td>2 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 3</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2>3. Analisis Kondisi & Rekomendasi</h2>
-    <p>Secara keseluruhan, <strong>90%</strong> aset dalam kondisi prima. Terdapat satu item (Printer Label) yang memerlukan servis rutin sebagaimana tercatat pada Jurnal 4.</p>
-
-    <h2>4. Formulir Update Inventaris</h2>
-    <p>Gunakan formulir di bawah ini untuk melaporkan penambahan barang atau perubahan kondisi aset secara langsung:</p>
-    <div class="embed-wrapper">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1nMgUusuwANnUioOu1CRfg1Sh-X1n1QAiZuGoPqKKpVU8uA/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+    <h2>2. Data Inventaris Saat Ini</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama Barang</th>
+                    <th>Jumlah</th>
+                    <th>Kondisi</th>
+                    <th>Sumber</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Mesin Pengolah Utama</td>
+                    <td>2 Unit</td>
+                    <td><span class="badge baik">Baik</span></td>
+                    <td>Jurnal 1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Laptop Admin</td>
+                    <td>1 Unit</td>
+                    <td><span class="badge baik">Baik</span></td>
+                    <td>Jurnal 2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Timbangan Digital</td>
+                    <td>3 Unit</td>
+                    <td><span class="badge baik">Baik</span></td>
+                    <td>Jurnal 1 & 3</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Printer Label</td>
+                    <td>1 Unit</td>
+                    <td><span class="badge rusak">Rusak Ringan</span></td>
+                    <td>Jurnal 4</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-    <h2>5. Database Live (Google Sheets)</h2>
-    <p>Tampilan data mentah dari spreadsheet inventaris kelompok:</p>
-    <div class="embed-wrapper">
-        <iframe src="https://docs.google.com/spreadsheets/d/1ybO-7efBhz-i-JFZOn5mansMquMvpB_EtPLevb82pSQ/preview" width="100%" height="500" frameborder="0"></iframe>
+    <h2>3. Formulir Input Barang Baru (Google Forms)</h2>
+    <p>Gunakan formulir di bawah ini untuk menambahkan data inventaris baru secara langsung ke sistem:</p>
+    <div class="iframe-wrapper iframe-form">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1nMgUusuwANnUioOu1CRfg1Sh-X1n1QAiZuGoPqKKpVU8uA/viewform?embedded=true" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
     </div>
+
+    <h2>4. Database Utama (Google Sheets)</h2>
+    <p>Untuk melihat riwayat data lengkap dan melakukan edit secara manual, silakan akses spreadsheet melalui tautan di bawah ini:</p>
+    <a href="https://docs.google.com/spreadsheets/d/1ybO-7efBhz-i-JFZOn5mansMquMvpB_EtPLevb82pSQ/edit?usp=sharing" target="_blank" class="btn-link">Buka Google Sheets Inventaris</a>
+
+    <h2>5. Dashboard Analisis Data (Looker Studio)</h2>
+    <p>Visualisasi kondisi barang dan sebaran aset secara real-time:</p>
+    <div class="iframe-wrapper iframe-dashboard">
+        <iframe width="100%" height="100%" src="https://datastudio.google.com/embed/reporting/2389f1a1-4bf7-466b-8bc1-1c6687e9e187/page/page_12345" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+    </div>
+
+    <h2>6. Analisis & Rekomendasi</h2>
+    <p>Berdasarkan data <strong>Dashboard (Poin 5)</strong>, tingkat kesehatan aset berada di angka 90%. Rekomendasi utama adalah segera melakukan perbaikan pada <em>Printer Label</em> agar tidak menghambat proses pelabelan produk pada periode berikutnya.</p>
 
     <footer>
-        <p>&copy; 2026 Tugas Kuliah - Sistem Informasi Inventaris KUB</p>
+        <p>&copy; 2026 KUB Sejahtera | Sistem Integrasi Inventaris Kelompok</p>
     </footer>
 </div>
 
