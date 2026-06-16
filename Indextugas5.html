@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas 5 - Inventaris Barang Kelompok KUB</title>
+    <title>Laporan Tingkat Kepuasan</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -87,55 +87,6 @@
             padding-top: 10px;
         }
 
-        .info-section {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            font-size: 0.9em;
-            background: #eef2f3;
-            padding: 15px;
-            border-radius: 5px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        table th, table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-
-        table th {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        table tr:nth-child(even) { background-color: #f9f9f9; }
-
-        .journal-summary {
-            margin-top: 20px;
-            padding: 15px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: bold;
-            color: white;
-        }
-
-        .baik { background-color: #27ae60; }
-        .rusak { background-color: #e74c3c; }
-
         .embed-container {
             margin-top: 20px;
             border: 1px solid #ddd;
@@ -168,7 +119,6 @@
 
         @media (max-width: 600px) {
             nav ul { flex-direction: column; align-items: center; }
-            .info-section { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
@@ -176,128 +126,40 @@
 
 <div class="container">
     <header>
-        <h1>LAPORAN INVENTARIS BARANG</h1>
-        <p>Tugas 5: Ringkasan Kelompok Usaha Bersama (KUB)</p>
+        <h1>LAPORAN TINGKAT KEPUASAN</h1>
+        <p>Analisis dan Hasil Survei Kepuasan</p>
     </header>
 
     <nav>
         <ul>
-            <li><a href="#ringkasan">1. Ringkasan</a></li>
-            <li><a href="#daftar">2. Detail Inventaris</a></li>
-            <li><a href="#lampiran">3. Lampiran</a></li>
-            <li><a href="#analisis">4. Analisis</a></li>
+            <li><a href="#google-form">1. Google Form Kepuasan</a></li>
+            <li><a href="#spreadsheet">2. Spreadsheet Kepuasan</a></li>
+            <li><a href="#looker-studio">3. Looker Studio</a></li>
         </ul>
     </nav>
 
-    <div class="info-section">
-        <div>
-            <strong>Kelompok:</strong> Kelompok 4 / KUB Sejahtera<br>
-            <strong>Mata Kuliah:</strong> Kewirausahaan / Manajemen
-        </div>
-        <div>
-            <strong>Tanggal:</strong> 31 Mei 2026<br>
-            <strong>Status:</strong> Final
-        </div>
-    </div>
-
-    <h2 id="ringkasan">1. Ringkasan Eksekutif 4 Jurnal</h2>
-    <p>Berdasarkan analisis dari 4 jurnal KUB yang telah dikumpulkan, berikut adalah ringkasan pengadaan dan pengelolaan barang kelompok:</p>
-    
-    <div class="journal-summary">
-        <ul>
-            <li><strong>Jurnal 1:</strong> Fokus pada pengadaan alat produksi dasar.</li>
-            <li><strong>Jurnal 2:</strong> Pencatatan bahan baku sisa dan perlengkapan kantor.</li>
-            <li><strong>Jurnal 3:</strong> Inventarisasi alat pemasaran dan promosi.</li>
-            <li><strong>Jurnal 4:</strong> Audit kondisi barang dan penyusutan nilai aset.</li>
-        </ul>
-    </div>
-
-    <h2 id="daftar">2. Detail Daftar Inventaris Barang</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Nama Barang</th>
-                <th>Jumlah</th>
-                <th>Kondisi</th>
-                <th>Sumber Jurnal</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Mesin Pengolah Utama</td>
-                <td>2 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 1</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Laptop Admin</td>
-                <td>1 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 2</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Timbangan Digital</td>
-                <td>3 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 1 & 3</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Printer Label</td>
-                <td>1 Unit</td>
-                <td><span class="badge rusak">Rusak Ringan</span></td>
-                <td>Jurnal 4</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Display Produk (Etalase)</td>
-                <td>2 Unit</td>
-                <td><span class="badge baik">Baik</span></td>
-                <td>Jurnal 3</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2 id="lampiran">3. Lampiran Interaktif & Data Pendukung</h2>
-    <p>Berikut adalah formulir input, database real-time, dan dashboard laporan yang terintegrasi:</p>
-
-    <div class="embed-container">
-        <div class="embed-title">Formulir Inventaris Barang (Input)</div>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdj95ERiRDd6txhCsa6ycsq5SX-VMSqeQDZRSeoY3qbY4Iq1Q/viewform?embedded=true" height="800" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
-    </div>
-
-    <div class="embed-container">
-        <div class="embed-title">Spreadsheet Inventaris Barang KUB</div>
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTuopDvCZ5jaKexGQu7s9gmxD8u64TzAk7nESI-mqpogLf7ywW1DWA3VCaDlTIQSgoXmr9nL6y8365B/pubhtml?widget=true&amp;headers=false" height="600"></iframe>
-    </div>
-
-    <div class="embed-container">
-        <div class="embed-title">Dashboard Visualisasi Data</div>
-        <iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/d59a92dc-bc6d-4e53-bec1-90f16bdbf8ee/page/page_12345" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-    </div>
-
+    <h2 id="google-form">1. Formulir Tingkat Kepuasan (Google Form)</h2>
     <div class="embed-container">
         <div class="embed-title">Formulir Tingkat Kepuasan</div>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe7vUI8ZiprL0jY1smf7SVG5T01ihbdnYIFIfb6mVdbitB1dQ/viewform?embedded=true" height="520" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe7vUI8ZiprL0jY1smf7SVG5T01ihbdnYIFIfb6mVdbitB1dQ/viewform?embedded=true" height="600" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
     </div>
 
+    <h2 id="spreadsheet">2. Database Respon Kepuasan (Spreadsheet)</h2>
     <div class="embed-container">
         <div class="embed-title">Database Respon Kepuasan</div>
         <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRHnOfDhFgmZnkPEY2gt2yXt32JSK4T-_JZcA2pGhEG5PUzNy9JP7_hzXM9b23GeeW6IA_3fPZDGBzF/pubhtml?widget=true&amp;headers=false" height="500"></iframe>
     </div>
 
-    <h2 id="analisis">4. Analisis Kondisi & Rekomendasi</h2>
-    <p>Secara keseluruhan, <strong>90%</strong> aset dalam kondisi prima. Terdapat satu item (Printer Label) yang memerlukan servis rutin sebagaimana tercatat pada Jurnal 4. Disarankan untuk melakukan pengecekan berkala setiap 3 bulan sekali sesuai protokol KUB.</p>
+    <h2 id="looker-studio">3. Dashboard Visualisasi Data (Looker Studio)</h2>
+    <div class="embed-container">
+        <div class="embed-title">Dashboard Looker Studio Tingkat Kepuasan</div>
+        <iframe height="500" src="https://datastudio.google.com/embed/reporting/d59a92dc-bc6d-4e53-bec1-90f16bdbf8ee/page/page_12345" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+    </div>
 
     <footer>
-        <p>&copy; 2026 Tugas Kuliah - Sistem Informasi Inventaris KUB</p>
+        <p>&copy; 2026 Laporan Sistem Informasi - Tingkat Kepuasan</p>
     </footer>
 </div>
 
 </body>
 </html>
-
