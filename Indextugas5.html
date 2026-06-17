@@ -110,6 +110,24 @@
             color: var(--secondary-color);
         }
 
+        /* Tambahan style untuk tombol kembali agar lebih rapi */
+        .btn-kembali {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-kembali:hover {
+            background-color: #1a252f;
+        }
+
         footer {
             text-align: center;
             margin-top: 40px;
@@ -128,6 +146,7 @@
     <header>
         <h1>Sistem Data Portal Inventaris Barang Bersama</h1>
         <p></p>
+        <a href="javascript:history.back()" class="btn-kembali">&#8592; Kembali ke Tugas Akhir</a>
     </header>
 
     <nav>
