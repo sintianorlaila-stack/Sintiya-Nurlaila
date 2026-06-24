@@ -1,198 +1,476 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Data Portal Inventaris Barang Bersama</title>
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #3498db;
-            --bg-color: #f4f7f6;
-            --text-color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Data Portal Inventaris Barang Bersama</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg: #f4f7f6;
+      --card: #ffffff;
+      --primary: #1abc9c;
+      --primary-dark: #16a085;
+      --sidebar: #2c3e50;
+      --sidebar-dark: #1a252f;
+      --text: #2d3436;
+      --muted: #636e72;
+      --line: #e5e7eb;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+      --radius: 18px;
+      --sidebar-w: 280px;
+      --sidebar-c: 76px;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 20px;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: 
+        radial-gradient(circle at top left, rgba(26,188,156,.10), transparent 30%),
+        radial-gradient(circle at right top, rgba(52,152,219,.09), transparent 26%),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
 
-        header {
-            text-align: center;
-            border-bottom: 3px solid var(--accent-color);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-        }
+    /* Layout Wrapper */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
 
-        h1 { color: var(--primary-color); margin-bottom: 5px; }
-        
-        nav {
-            background: var(--primary-color);
-            padding: 10px;
-            border-radius: 5px;
-            position: sticky;
-            top: 10px;
-            z-index: 1000;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
+    /* Tombol Menu Mobile */
+    .mobile-toggle {
+      display: none;
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 60;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 14px;
+      background: var(--sidebar-dark);
+      color: #fff;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+    /* Sidebar Styles */
+    .sidebar {
+      width: var(--sidebar-c);
+      background: linear-gradient(180deg, var(--sidebar) 0%, #233140 100%);
+      color: #ecf0f1;
+      position: fixed;
+      inset: 0 auto 0 0;
+      z-index: 50;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: transform .3s ease, width .3s ease;
+    }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.9em;
-            font-weight: bold;
-            padding: 5px 10px;
-            transition: 0.3s;
-        }
+    .sidebar.open,
+    .sidebar:hover {
+      width: var(--sidebar-w);
+    }
 
-        nav ul li a:hover {
-            background-color: var(--accent-color);
-            border-radius: 4px;
-        }
+    .brand {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 18px;
+      background: var(--sidebar-dark);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      white-space: nowrap;
+    }
 
-        h2 { 
-            color: var(--secondary-color); 
-            border-left: 5px solid var(--accent-color); 
-            padding-left: 10px; 
-            margin-top: 50px;
-            padding-top: 10px;
-        }
+    .brand i {
+      color: var(--primary);
+      font-size: 24px;
+      min-width: 28px;
+      text-align: center;
+    }
 
-        .embed-container {
-            margin-top: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #fff;
-            margin-bottom: 30px;
-        }
+    .brand h2 {
+      font-size: 14px;
+      font-weight: 700;
+      opacity: 0;
+      transition: .25s ease;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
-        .embed-container iframe {
-            width: 100%;
-            border: none;
-            display: block;
-        }
+    .sidebar.open .brand h2,
+    .sidebar:hover .brand h2 {
+      opacity: 1;
+    }
 
-        .embed-title {
-            background: #f8f9fa;
-            padding: 10px 15px;
-            font-weight: bold;
-            border-bottom: 1px solid #ddd;
-            color: var(--secondary-color);
-        }
+    .sidebar-menu {
+      list-style: none;
+      padding: 12px 0;
+    }
 
-        /* Tambahan style untuk tombol kembali agar lebih rapi */
-        .btn-kembali {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 0.9em;
-            margin-top: 10px;
-            transition: 0.3s;
-        }
+    .menu-item {
+      margin: 6px 10px;
+    }
 
-        .btn-kembali:hover {
-            background-color: #1a252f;
-        }
+    .menu-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px;
+      border: none;
+      background: transparent;
+      color: #cbd5e1;
+      cursor: pointer;
+      border-radius: 14px;
+      transition: .25s ease;
+      font: inherit;
+      text-align: left;
+    }
 
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.8em;
-            color: #777;
-        }
+    .menu-toggle i {
+      width: 28px;
+      text-align: center;
+      font-size: 18px;
+    }
 
-        @media (max-width: 600px) {
-            nav ul { flex-direction: column; align-items: center; }
-        }
-    </style>
+    .menu-label {
+      opacity: 0;
+      transition: .25s ease;
+      white-space: nowrap;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .sidebar.open .menu-label,
+    .sidebar:hover .menu-label {
+      opacity: 1;
+    }
+
+    .menu-toggle:hover,
+    .menu-toggle.active {
+      background: rgba(255,255,255,.08);
+      color: var(--primary);
+    }
+    
+    .menu-toggle.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* Main Content Area */
+    .main {
+      margin-left: var(--sidebar-c);
+      width: calc(100% - var(--sidebar-c));
+      padding: 24px;
+      transition: margin-left .3s ease, width .3s ease;
+    }
+
+    .sidebar.open ~ .main,
+    .sidebar:hover ~ .main {
+      margin-left: var(--sidebar-w);
+      width: calc(100% - var(--sidebar-w));
+    }
+
+    /* Topbar Header */
+    .topbar {
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.7);
+      box-shadow: var(--shadow);
+      border-radius: 22px;
+      padding: 18px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-title h1 {
+      font-size: 20px;
+      color: var(--sidebar-dark);
+      font-weight: 600;
+    }
+
+    .btn-kembali {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--sidebar);
+      color: white;
+      padding: 10px 18px;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 13px;
+      transition: .25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .btn-kembali:hover {
+      background-color: var(--sidebar-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Section Control with Animation */
+    .section {
+      display: none;
+      animation: fadeIn .35s ease forwards;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Cards & Containers for Content */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.6);
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 14px;
+      color: var(--sidebar-dark);
+      font-weight: 600;
+      border-left: 5px solid var(--primary);
+      padding-left: 12px;
+    }
+
+    /* Embed Container Customization */
+    .embed-container {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    .embed-title {
+      background: #f8fafc;
+      padding: 12px 18px;
+      font-weight: 600;
+      font-size: 14px;
+      border-bottom: 1px solid var(--line);
+      color: var(--sidebar);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .embed-container iframe {
+      width: 100%;
+      border: none;
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 12px;
+      color: var(--muted);
+      padding: 10px;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: flex;
+      }
+      .sidebar {
+        transform: translateX(-100%);
+        width: var(--sidebar-w) !important;
+      }
+      .sidebar.open {
+        transform: translateX(0);
+      }
+      .main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 16px;
+        padding-top: 76px;
+      }
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
+<div class="layout">
+  <button class="mobile-toggle" id="mobileBtn" aria-label="Toggle Menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <i class="fa-solid fa-boxes-stacked"></i>
+      <h2>Portal Barang</h2>
+    </div>
+    <ul class="sidebar-menu">
+      <li class="menu-item">
+        <button class="menu-toggle active" data-target="input-data">
+          <i class="fa-solid fa-clipboard-list"></i>
+          <span class="menu-label">1. Input Data</span>
+        </button>
+      </li>
+      <li class="menu-item">
+        <button class="menu-toggle" data-target="sajian-data">
+          <i class="fa-solid fa-table"></i>
+          <span class="menu-label">2. Sajian Data</span>
+        </button>
+      </li>
+      <li class="menu-item">
+        <button class="menu-toggle" data-target="looker-data">
+          <i class="fa-solid fa-chart-pie"></i>
+          <span class="menu-label">3. Looker Studio</span>
+        </button>
+      </li>
+      <li class="menu-item">
+        <button class="menu-toggle" data-target="google-form">
+          <i class="fa-solid fa-square-poll-horizontal"></i>
+          <span class="menu-label">4. Form Kepuasan</span>
+        </button>
+      </li>
+      <li class="menu-item">
+        <button class="menu-toggle" data-target="spreadsheet-kepuasan">
+          <i class="fa-solid fa-database"></i>
+          <span class="menu-label">5. Database Kepuasan</span>
+        </button>
+      </li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-title">
         <h1>Sistem Data Portal Inventaris Barang Bersama</h1>
-        <p></p>
-        <a href="https://faroukmuhamad-gif.github.io/DEMO-TUGAS/" class="btn-kembali">&#8592; Kembali ke Tugas Akhir</a>
+      </div>
+      <a href="https://faroukmuhamad-gif.github.io/DEMO-TUGAS/" class="btn-kembali">
+        <i class="fa-solid fa-arrow-left"></i> Kembali ke Tugas Akhir
+      </a>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="#input-data">1. Input Data</a></li>
-            <li><a href="#sajian-data">2. Sajian Data</a></li>
-            <li><a href="#looker-data">3. Looker Studio</a></li>
-            <li><a href="#google-form">4. Form Kepuasan</a></li>
-            <li><a href="#spreadsheet-kepuasan">5. Database Kepuasan</a></li>
-        </ul>
-    </nav>
+    <section id="input-data" class="section active">
+      <div class="card">
+        <h2 class="section-title">1. Formulir Input Data (Google Form)</h2>
+        <div class="embed-container">
+          <div class="embed-title"><i class="fa-solid fa-wpforms"></i> Formulir Input Data</div>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScv8Y92GariPWK-f2toPW2pjCHLogbsS5WK-5SQYLwkfEMn2g/viewform?embedded=true" height="1000" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+        </div>
+      </div>
+    </section>
 
-    <h2 id="input-data">1. Formulir Input Data (Google Form)</h2>
-    <div class="embed-container">
-        <div class="embed-title">Formulir Input Data</div>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScv8Y92GariPWK-f2toPW2pjCHLogbsS5WK-5SQYLwkfEMn2g/viewform?embedded=true" height="1734" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
-    </div>
+    <section id="sajian-data" class="section">
+      <div class="card">
+        <h2 class="section-title">2. Sajian Data (Spreadsheet)</h2>
+        <div class="embed-container">
+          <div class="embed-title"><i class="fa-solid fa-file-excel"></i> Sajian Data Spreadsheet</div>
+          <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTE8oq3Nen1D6-jNeYHnk9eGrJ5WTbej1MCbstO_5P1hYSjzawZzC5kEr_XZJXSCyNnpKpODCkBOl1-/pubhtml?widget=true&amp;headers=false" height="600"></iframe>
+        </div>
+      </div>
+    </section>
 
-    <h2 id="sajian-data">2. Sajian Data (Spreadsheet)</h2>
-    <div class="embed-container">
-        <div class="embed-title">Sajian Data Spreadsheet</div>
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTE8oq3Nen1D6-jNeYHnk9eGrJ5WTbej1MCbstO_5P1hYSjzawZzC5kEr_XZJXSCyNnpKpODCkBOl1-/pubhtml?widget=true&amp;headers=false" height="500"></iframe>
-    </div>
+    <section id="looker-data" class="section">
+      <div class="card">
+        <h2 class="section-title">3. Dashboard Visualisasi Data (Looker Studio)</h2>
+        <div class="embed-container">
+          <div class="embed-title"><i class="fa-solid fa-chart-column"></i> Dashboard Looker Studio - Data Masuk</div>
+          <iframe height="600" src="https://datastudio.google.com/embed/reporting/25ebc41a-1614-450d-b1d0-6f6e8dc49f18/page/page_12345" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        </div>
+      </div>
+    </section>
 
-    <h2 id="looker-data">3. Dashboard Visualisasi Data (Looker Studio)</h2>
-    <div class="embed-container">
-        <div class="embed-title">Dashboard Looker Studio - Data Masuk</div>
-        <iframe height="500" src="https://datastudio.google.com/embed/reporting/25ebc41a-1614-450d-b1d0-6f6e8dc49f18/page/page_12345" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-    </div>
+    <section id="google-form" class="section">
+      <div class="card">
+        <h2 class="section-title">4. Formulir Tingkat Kepuasan (Google Form)</h2>
+        <div class="embed-container">
+          <div class="embed-title"><i class="fa-solid fa-heart-circle-check"></i> Formulir Tingkat Kepuasan</div>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdelkE5lOZ7kz4kQlDSNaT_X6L8v8bAL3WJn4cO1kM_GgN_4Q/viewform?embedded=true" height="1000" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
+        </div>
+      </div>
+    </section>
 
-    <h2 id="google-form">4. Formulir Tingkat Kepuasan (Google Form)</h2>
-    <div class="embed-container">
-        <div class="embed-title">Formulir Tingkat Kepuasan</div>
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdelkE5lOZ7kz4kQlDSNaT_X6L8v8bAL3WJn4cO1kM_GgN_4Q/viewform?embedded=true" width="640" height="5990" frameborder="0" marginheight="0" marginwidth="0">Memuat…</iframe>
-    </div>
-
-    <h2 id="spreadsheet-kepuasan">5. Database Respon Kepuasan (Spreadsheet)</h2>
-    <div class="embed-container">
-        <div class="embed-title">Database Respon Kepuasan</div>
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS6ro3BJLTKAdxlDsPI7Jhcb00TQzejG39Gh8TalBvk8gr_U2heUGK39A44cq4TbUmRcwEdT40F3-xR/pubhtml?widget=true&amp;headers=false" height="500"></iframe>
-    </div>
+    <section id="spreadsheet-kepuasan" class="section">
+      <div class="card">
+        <h2 class="section-title">5. Database Respon Kepuasan (Spreadsheet)</h2>
+        <div class="embed-container">
+          <div class="embed-title"><i class="fa-solid fa-server"></i> Database Respon Kepuasan</div>
+          <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS6ro3BJLTKAdxlDsPI7Jhcb00TQzejG39Gh8TalBvk8gr_U2heUGK39A44cq4TbUmRcwEdT40F3-xR/pubhtml?widget=true&amp;headers=false" height="600"></iframe>
+        </div>
+      </div>
+    </section>
 
     <footer>
-        <p>&copy;</p>
+      <p>&copy; 2026 Sistem Informasi Inventaris Barang Bersama Kelompok</p>
     </footer>
+  </main>
 </div>
 
+<script>
+  const toggles = document.querySelectorAll('.menu-toggle');
+  const sections = document.querySelectorAll('.section');
+  const mobileBtn = document.getElementById('mobileBtn');
+  const sidebar = document.getElementById('sidebar');
+
+  // Logic ganti Tab Konten Dinamis
+  toggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      toggles.forEach(t => t.classList.remove('active'));
+      sections.forEach(s => s.classList.remove('active'));
+
+      toggle.classList.add('active');
+      const target = toggle.getAttribute('data-target');
+      document.getElementById(target).classList.add('active');
+
+      // Otomatis tutup sidebar di mobile setelah pilih menu
+      sidebar.classList.remove('open');
+    });
+  });
+
+  // Toggle Sidebar Mobile
+  mobileBtn.addEventListener('click', (e) => {
+    sidebar.classList.toggle('open');
+    e.stopPropagation();
+  });
+
+  // Klik di luar sidebar untuk menutupnya (khusus Mobile)
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !mobileBtn.contains(e.target)) {
+      sidebar.classList.remove('open');
+    }
+  });
+</script>
 </body>
 </html>
